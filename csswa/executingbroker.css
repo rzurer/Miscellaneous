@@ -1,0 +1,100 @@
+﻿#deleteExecutingBrokerForTrader
+{
+    width: 360px;
+    font-family: Ubuntu;
+    padding-top: 10px;
+    font-size: 13px;
+    border: 3px solid gainsboro;
+    margin-bottom: 20px;
+    float: left;
+}
+#deleteRadioButtonsContainer label 
+{
+}
+#deleteRadioButtonsContainer table {
+    border-collapse: collapse;
+    padding: 0px;
+    border-spacing: 0px;
+    text-align: left;
+    float: left;
+}
+#deleteRadioButtonsContainer input[type='radio'] 
+{
+}
+#deleteExecutingBrokerForTrader div {
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+#tradersSelect {
+     width: 150px;
+     float: left;  
+}
+#traderLabel 
+{
+    width: 135px;
+    float: left;
+}
+#deleteOneLabel       
+{
+}
+#deleteLabel {
+   width: 135px !important;
+   float: left;
+}
+
+#deleteAllButton 
+{
+    margin-top: 15px;
+    margin-left: 5px;
+    width: 123px;
+    float: left;
+    clear: both;
+}
+#deleteExecutingBrokerForTrader .bolddarkgreen 
+{
+    float: left;
+}
+#deleteExecutingBrokerForTrader div 
+{
+    margin-left: 15px;
+    float: left;
+}
+#deleteExecutingBrokerForTrader label {
+    padding: 5px;
+    float: left;
+}
+#deleteExecutingBrokerForTrader input[type='text'] {
+    width: 150px;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E5E5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+#tradersAutocomplete 
+{
+    margin-left: 10px;
+    float: left; 
+}
+#executingBrokers {
+    width: 150px;
+    background-color: white;
+    margin-left: 10px;
+    float: left;
+}
+.externalBrokerCell { 
+    width: 125px;
+    color: blue;
+}
+.externalBrokerRow {
+    line-height: 25px;
+}
+#executingBrokers td
+{
+    border-bottom: 1px solid gainsboro;
+}
+#executingBrokersTable  td {
+    vertical-align: top;
+}
+

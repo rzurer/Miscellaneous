@@ -1,0 +1,53 @@
+﻿#showTraderChangeLog{
+    width: 1024px;
+    font-size: 13px;
+    color: dimgray;
+    font-family: 'Muli' !important;
+    float: left;
+}
+#showTraderChangeLogSelectContainer  label{
+    margin-right: 10px; 
+    float: left;
+}
+#showTraderChangeLogSelectContainer select{
+    color: black;
+    margin-right: 10px;
+    font-size: 10px;
+    width: 115px;
+}
+.spaceLeft {
+    margin-left: 75px;
+    margin-right: 15px !important;
+}
+#traderLogTableContainer {
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    width: 100%;
+    color: black;
+    float: left;
+}
+#traderLogTableContainer th {
+    padding-bottom: 6px;
+}
+#traderLogTableContainer th {
+    padding-bottom: 6px;
+    text-align: left;
+}
+.logDate {
+    color: blue;
+}
+.traderLog {
+    margin-left: 2px;
+    margin-top: 2px;
+    float: left;
+}
+.updateLogTrader {
+    color: maroon;
+}
+.updateLogPropertyName {
+        color: forestgreen;
+}
+.updateLogUpdateUser {
+    color: purple;
+}

@@ -1,0 +1,650 @@
+.limitedPermissionsWarning {
+    background-color: InfoBackground;
+    border: 4px dashed red;
+    font-size: 24px !important;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    color: red;
+    width: 500px;
+    height: 180px;
+    float: left;
+}
+.traderPermissionsTable
+{
+    float: left;
+    width: 900px;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;
+}
+.permissionRosterLabelRow {
+    vertical-align: top;
+}
+.permissionRosterRow {
+    vertical-align: top;
+    border-bottom: 1px dashed #A9A9A9
+}
+.permissionRosterLabelRow td {
+   color: blue;
+   font-family: Ubuntu;
+   font-weight: bold;
+   padding-top: 7px;
+   font-size: 14px;
+}
+.permissionRosterRow td{
+    padding-bottom: 7px;
+}
+.checkboxDiv {
+   float: left;
+   padding-right: 10px;
+}
+.checkboxDiv span {
+    white-space: nowrap;
+    float: left;
+}
+.pageAccessRow {
+    line-height: 20px;
+}
+.pageAccessRow td{
+    border-bottom: 1px dashed lightblue;
+    cursor: pointer;
+}
+.pageUrl{
+    color: blue;
+}
+.pageDescription{
+    color: darkolivegreen;
+}
+.pageAccessTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.pageAccessRow:hover {
+   background-color: InfoBackground;
+}
+.pageAccessTableHeaderRow {
+    cursor: pointer;
+    text-align: left;
+}
+.pageAccessEditInPlace:hover {
+  background-color: yellow;
+}
+#manageCreatePageAccessError {
+    padding-top: 10px;
+    margin-left: 540px;
+}
+#manageCreatePageAccessError div {
+    width: 250px !important;
+    float: left !important;
+    clear: both;
+    padding-bottom: 0 !important;
+    text-align: center;
+}
+#managePageAccess {
+    font-family: Muli !important;
+    width: 100%;
+    float: left;
+    background-color: whitesmoke;
+}
+#filterContainer span {
+    font-size: 16px;
+    font-weight: normal;
+    padding-top: 8px;
+    padding-left: 150px;
+    color: black;
+    float: left;
+}
+#managePageAccessHeader {
+    width: 100%;
+    float: left;
+    border-bottom: 3px dashed gainsboro;
+    background-color: white;
+}
+#managePageAccessHeaderLabel{
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 15px;
+    padding-bottom: 10px;
+    color: #A9A9A9;
+    float: left;
+}
+#managePageAccessCategoriesLabel{
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-left: 100px;
+    font-size: 16px;
+    float: left;
+}
+#pageCategoriesSelect {
+    float: left;
+    margin-right: 30px;
+}
+#pagesTableContainer {
+    float: left;
+    padding-top: 10px;
+}
+#managePageAccessHeader img {
+    cursor: pointer;
+    width: 35px;
+    margin-top: 3px;
+    float: left;
+}
+.deletePageAccessButton {
+    cursor: pointer;
+    width: 25px;    
+}
+#hideCreatePageAccessImage {
+   margin-left: 420px;
+   display: none;
+}
+#createPageAccessContainer {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    float: left;
+    display: none; 
+}
+#createPageAccessContainer div {
+    width: 100%;
+    padding-bottom: 15px;
+    float: left;
+}
+#createPageAccessContainer span{
+    float: left;
+    width: 85px;
+    padding-top: 8px;
+    color: blue;
+}
+#createPageAccessContainer select, input{
+    float: left;
+    margin-right: 10px;
+}
+#pageDescriptionInput {
+    width: 458px !important;
+}
+#pageUrlInput {
+    width: 720px !important;
+}
+.rolesTable td{
+    padding-top: 4px;
+    border: none !important;
+}
+.rolesTable span{
+    width: auto !important;
+    padding-right: 3px;
+    padding-top: 1px !important;
+    color: black !important;
+}
+#createPageAccessButton:hover
+{
+    background: #69a5c7;
+    background: #69a5c7;
+    background: -webkit-linear-gradient(#69a5c7, #5c90ae);
+    background: -moz-linear-gradient(#69a5c7, #5c90ae);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#69a5c7), to(#5c90ae));
+    background: -webkit-linear-gradient(#69a5c7, #5c90ae);
+    background: -moz-linear-gradient(#69a5c7, #5c90ae);
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #43697e;
+}
+#createPageAccessButton.pressed
+{
+    -moz-box-shadow: #fff 0 0 2px;
+    -webkit-box-shadow: #fff 0 0 2px;
+    background: #5c90ae;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5c90ae), to(#69a5c7));
+    background: -webkit-linear-gradient(#5c90ae, #69a5c7);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5c90ae), to(#69a5c7));
+    background: -webkit-linear-gradient(#5c90ae, #69a5c7);
+    background: -moz-linear-gradient(#5c90ae, #69a5c7);
+    background: -ms-linear-gradient(#5c90ae, #69a5c7);
+    border-left: 1px solid #3c5f73;
+    border-top: 1px solid #3c5f73;
+    color: #fff;
+}
+#createPageAccessButton{
+    text-align: center;
+    border: 1px solid dimgray;
+    background: -moz-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e8e8e8), color-stop(49%, #d1d1d1), color-stop(100%, #bfc5c9));
+    background: -webkit-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -o-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -ms-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: "Trebuchet MS";
+    font-size: 18px;
+    font-weight: bold;
+    height: 20px;
+    padding-top: 10px;
+    margin-left: 550px;
+    width: 235px !important;
+    width: 235px !important;
+}
+#createPageAccessButton label{
+    text-align: center;
+    cursor: pointer;
+    font-family: "Trebuchet MS";
+    font-size: 18px;
+    font-weight: bold;
+}#urlLabel {
+   /*margin-right: 10px; */
+}
+#createCategoryImage, #createRoleImage{
+    margin-left: -20px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    float: left;
+    width: 20px;
+}
+#createRoleImage {
+    display: none;
+}
+#createCategoryInput {
+    float: left;
+    display: none;
+}
+#saveCategoryImage, #cancelSaveCategoryImage{
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+    display: none;
+    cursor: pointer;
+    width: 20px;
+}
+#saveCategoryImage {
+  margin-left: -20px; 
+}
+#categoryRoleToaster {
+   display: none;
+}
+/*reconcileAccount.css*/
+#showTraderAndProductsByReconcileAccount {
+    font-family: Muli !important;
+    font-size: 14px;
+}
+#showTraderAndProductsByReconcileAccountError {
+    color: red;
+}
+#showTraderAndProductsByReconcileAccountStatus {
+    color: green;
+}
+.traderAndProductsTableHeaderRow {
+    text-align: left;
+}
+#chooseReconcileAccount {
+    padding-left: 5px;
+    padding-bottom: 15px;
+}
+#traderAndProductsTableContainer th {
+    text-align: left;
+}
+.traderAndProductsFilterRow td{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+}
+/*applicationVersionOverride*/
+#bulkVersionUpdate
+{
+    display: none;
+    float: left;
+}
+#bulkVersionUpdate select
+{
+    width: 80px;
+    float: left;
+}
+#bulkVersionUpdate span
+{
+    color: #2C2774;
+    padding-right: 5px;
+    float: left;
+}
+#bulkVersionUpdate img{
+    width: 20px;
+    margin-top: 2px;
+    opacity: 0.2;
+    cursor: pointer;
+    margin-left: 5px;
+    float: left;
+}
+
+/*#########################    span settlements   ########################*/
+.exchangesTable{
+    margin-top: 6px;
+    font-size: 12px;
+    float: left;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;    
+}
+.exchangesTable tr{
+    line-height: 21px;   
+}
+.exchangesTableHeaderRow th{
+    text-align: left;
+}
+#exchangesTableContainer {
+    padding-left: 4px;
+    float: left;
+    min-width: 1400px;
+}
+.isInactive {
+    display: none;
+    color: #A9A9A9 !important;
+}
+#controlBar{
+    border-bottom: 2px gainsboro dashed;
+    float: left;
+    width: 100%;
+    padding-bottom: 10px;
+}
+#controlBar input{
+    float: left;
+    margin-right: 20px;
+}
+#controlBar span
+{
+    padding: 8px;
+    float: left;
+}
+.alignCenter {
+    text-align: center !important;
+}
+.monospace {
+    font-family: courier;
+}
+.settled {
+    color: green;
+}
+.unsettled{
+    color: red;
+}
+#arrowLeftImage {
+    width: 18px;
+    float: left;
+    cursor: pointer;
+}
+#arrowLeftImage:hover {
+    background-color: InfoBackground;
+}
+#progress
+{
+    min-width: 220px;
+    color: red;
+    font-weight: bold;
+    float: left;
+}
+.productsTablesContainer {
+    display: none;
+    margin-top: 20px;
+    float: left;
+    clear: both;
+}
+#settlementsUpdateMessages{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#settlementsUpdateMessages li{
+    font-size: 14px;
+}
+.updateSettlementsButton {
+    margin-top: 1px ;
+    width: 20px;
+    margin-right: 2px;
+    float: right;
+    border: none;
+}
+.unselectedProduct {
+    border: none;
+    font-weight: normal;
+}
+.selectedProduct {
+    border: 2px inset gainsboro;
+    font-weight: bold;
+    color: green !important;
+}
+.productsTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.productSpan{
+    width: 70px;
+    float: left;
+    padding-left: 5px;
+}
+.futureSpan{
+    color: blue;
+}
+.optionSpan {
+    color: red;
+}
+.securityTypeHeader {
+    float: left;
+    font-weight: bold;
+    background-color: gainsboro;
+    text-align: center;
+}
+.securityTypeHeaderTable 
+{
+    margin: 10px 0;
+}
+.productsPopup {
+    background-color: white !important;
+}
+.exchangeHeader {
+   font-weight: bold;
+   font-size: 16px;
+   margin-bottom: 5px;
+   float: left;
+}
+.titleHeader {
+   margin-bottom: 5px;
+   font-size: 14px;
+   float: left;
+}
+.updateSelectedSettlementsButton {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-top: -30px;
+    border-radius: 5px;
+    background-color: gainsboro;
+    float: right;
+}
+.updateSelectedSettlementsButton:hover {
+    background-color: dimgray;
+    color: lightblue;
+}
+.uploadInput {
+    border: 1px solid gainsboro;
+    font-size: 14px;
+    width: 400px;
+    float: left; 
+}
+.uploadDescription {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: blue;
+    float: left;
+    width: 100%;
+}
+.uploadError {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: red;
+    float: left;
+    width: 100%;   
+}
+#folderImage {
+    border: none;
+}
+#settlementsError 
+{
+    color: red;
+    padding: 5px 10px;
+    float: left;
+    width: 100%;
+}
+#settlementsStatusHeader 
+{
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+    width: 100%;
+}
+#settlementsStatus 
+{
+    min-height: 40px;
+    min-width: 1400px;
+    padding-left: 10px;
+    border: 1px dotted gainsboro;
+    float: left;
+    width: 100%;
+}
+.multiLine span{
+    float: left;
+    width: 100%;
+    line-height: 13px !important;
+}
+#dateSpan {
+    cursor: pointer;
+}
+/*#########################    Historical Future Settlements   ########################*/
+#historicalSettlementsError {
+    color: red;
+    float: left;
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+}
+#historicalSettlementsStatus {
+   color: green;
+}
+#historicalFutureSettlementHeader {
+   float: left;
+    width: 100%;
+    border-bottom: 2px dashed gainsboro;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+#historicalSettlementsTableContainer {
+    background-color: whitesmoke;
+    float: left;
+}
+.historicalFutureSettlementsTable {
+   float: left;
+   cursor: pointer;
+}
+.historicalFutureSettlementsTableRow td{
+    font-size: 14px;
+    vertical-align: top;
+    border-bottom: 1px solid gainsboro;
+}
+.historicalFutureSettlementsTableRow:hover{
+    background-color: InfoBackground;
+}
+.contractCodePriceTable td {
+    border: none !important;
+}
+#historicalFutureSettlementHeader span {
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-right: 10px;
+}
+.settlementDateCell 
+{
+    color: blue;
+    font-weight: bold;
+}
+.contractCodeCell 
+{
+    color: red;
+    font-weight: bold;
+
+}
+.settlementPriceCell {
+    text-align: right;
+    color: green;
+    font-weight: bold;
+}
+#commodityCodesSelect {
+    color: blue;
+    font-weight: bold;
+    width: 120px;
+    float: left;
+}
+#addFutureSettlementImage {
+    width: 35px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+#saveNewFutureSettlementButton {
+    width: 30px;
+    margin-top: 3px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#addNewFutureSettlementContainer {
+    display: none;
+    float: left;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px dashed gainsboro;   
+}
+#addNewFutureSettlementContainer span{
+    float: left;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 8px;
+}
+#addNewFutureSettlementContainer select{
+    margin-left: 7px;
+    margin-right: 20px;
+    float: left;
+}
+#addNewFutureSettlementContainer input{
+    margin-left: 7px;
+    margin-right: 20px;
+    float: left;
+}
+#addCommodityCode {
+    color: blue;
+    float: left;
+    margin-left: 7px;
+    margin-right: 20px;
+}
+.futureSettlementErrors {
+    list-style-type: circle;
+    padding: 0px;
+    margin: 0px;
+}
+.futureSettlementErrors li
+{
+    background-repeat: no-repeat;
+    background-position: 0px 5px; 
+    padding-left: 14px; 
+}
+#infoImage {
+    width: 18px;
+    margin-top: 8px;
+    margin-right: 100px;
+    float: right;
+    cursor: pointer;
+}
+#showInactiveFeedsCheckbox {
+    float: right;
+    margin-top: 10px;
+}

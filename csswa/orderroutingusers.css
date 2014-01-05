@@ -1,0 +1,659 @@
+﻿#showOrderRoutingUsers
+{
+    width: 1024px;
+    float: left;
+    height: 100%;
+    font-size: 12px;
+    color: dimgray;
+    font-family: 'Lato' !important;
+}
+#showOrderRoutingUsers table
+{
+    border-collapse: collapse;
+    padding: 0;
+    border-spacing: 0px;
+    float: left;
+}
+#usersAutoComplete {  
+   text-transform: uppercase; 
+}
+#clearingFirmsAutoComplete {
+    text-transform: uppercase;   
+}
+#usersContainer label{
+    padding-top: 5px;
+    float:left
+}
+#usersContainer input{
+    float:left
+}
+#clearingFirmsContainer input{
+    float:left
+}
+#clearingFirmsContainer label{
+    padding-top: 5px;
+    float:left
+}
+#externalUsernameContainer label{
+    padding-top: 5px;
+    float:left
+    
+}
+#externalUsernameContainer input{
+   float:left 
+}
+
+#summaryImage
+{
+    margin-left: 10px;
+    height: 40px;
+}
+#logImage
+{
+    margin-bottom: 2px;
+    margin-left: 10px;
+    height: 35px;
+}
+#logContainer {
+    display: none;
+    background-color: InfoBackground;
+    border-bottom: 1px dashed gray;
+    float: left;
+    width: 100%;
+}
+#addOrderRoutingUserImage
+{
+    margin-left: 20px;
+    height: 40px;
+}
+#orderroutingusers
+{
+    width: 100%;
+}
+#orderroutingusers select
+{
+    margin-left: -2px;
+    font-size: 11px !important;
+    padding: 3px;
+    color: midnightblue;
+    background-color: InfoBackground;
+    border: 1px solid darkgray;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.chooseMarketDataProviderSelect {
+    margin-top: 5px;
+    font-size: 11px !important;
+    padding: 3px;
+    color: midnightblue;
+    background-color: InfoBackground;
+    border: 1px solid darkgray;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    float: left;
+}
+#fixImage {
+   width: 20px;
+   margin-top: 5px;
+   margin-left: 10px;
+   float: left;
+}
+#licenseFilter
+{
+    margin-top: 16px;
+}
+.providersSelect
+{
+    width: 275px;
+    float: left;
+    clear: both;
+}
+#orderroutingusers td
+{
+    vertical-align: top;
+}
+.header th
+{
+    padding-top: 10px;
+    font-family: 'Ubuntu' !important;
+    font-weight: bold;
+    color: black;
+    font-size: 13px;
+    text-align: left;
+    vertical-align: top;
+    background-color: rgb(233, 231, 231);
+}
+.userNameHeader {
+    color: black;
+    width: 150px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.userName
+{
+    color: black;
+    width: 150px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.validationUserName
+{
+    color: black;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.license
+{
+    width: 110px;
+}
+.providerHeader
+{
+    width: 70px;
+    float: left;
+}
+.provider
+{
+    color: green;
+    width: 70px;
+}
+.externalUsernameHeader
+{
+    width: 110px;
+    float: left;
+}
+.externalUsername
+{
+    width: 110px;
+}
+.clearingFirmHeader
+{
+    float: left;
+}
+.clearingFirm
+{
+    color: blue;
+}
+.orderRoutingUser
+{
+    border-bottom: 1px dashed gray;
+    background-color: linen;
+}
+.usernameValidationError
+{
+    line-height:30px;
+    border-bottom: 1px dashed gray;
+    background-color: linen;
+}
+.orderRoutingSettings
+{
+    border-right: 1px solid dimgray;
+}
+.providerRowHeader
+{
+    border-right: 1px solid dimgray;
+}
+.orderAccountsHeader
+{
+    width: 215px;
+    text-align: center !important;
+    padding-bottom: 10px;
+    background-color: #FFFF96;
+    border-right: 1px solid dimgray;
+}
+.orderAccountsHeader div
+{
+    margin-bottom: 10px;
+    width: 100%;
+    display: block;
+    float: left;
+}
+.orderAccounts
+{
+    background-color: #FFFF96;
+}
+.validationError
+{
+    background-color: #FFFF96;
+    color: black;
+}
+.validationError td
+{
+    width: 600px;
+}
+
+.fillAccountsHeader
+{
+    width: 325px;
+    text-align: center !important;
+    background-color: aliceblue;
+}
+.fillAccountsHeader div
+{
+    margin-bottom: 10px;
+    width: 100%;
+    display: block;
+    float: left;
+}
+.fillAccounts
+{
+    background-color: aliceblue;
+}
+.productCodeHeader
+{
+    text-align: left !important;
+    padding-left: 10px;
+    opacity: 0.5;
+}
+.clearingFirmAccountHeader
+{
+    text-align: left !important;
+    padding-left: 10px;
+    opacity: 0.5;
+}
+.deleteButtonCell #orderAddImage
+{
+    height: 17px !important;
+    margin-top: 20px;
+    cursor: pointer;
+    float: left;
+}
+.deleteButtonCell #fillAddImage
+{
+    height: 17px !important;
+    margin-top: 20px;
+    cursor: pointer;
+    float: left;
+}
+.productCode
+{
+    width: 60px;
+    padding-left: 10px;
+    color: red;
+}
+.orderAccounts
+{
+    border-right: 1px solid dimgray;
+}
+
+.fillClearingFirmAccountHeader
+{
+    width: 120px;
+    text-align: left !important;
+    opacity: 0.5;
+}
+.fillUsernameHeader
+{
+    text-align: left !important;
+    opacity: 0.5;
+}
+.fillAccountHeader
+{
+    width: 110px;
+    text-align: left !important;
+    padding-left: 10px;
+    opacity: 0.5;
+}
+.fillAccount
+{
+    padding-left: 10px;
+    width: 110px;
+    color: purple;
+}
+.fillsFillAccount
+{
+    width: 130px;
+    color: purple;
+    font-weight: bold;
+    background-color: linen;
+}
+.fillClearingFirm
+{
+    width: 110px;
+    color: blue;
+    background-color: #FFFF96;
+}
+.fillClearingFirmAccount
+{
+    width: 100px;
+}
+.fillsClearingFirmAccount
+{
+    width: 150px;
+    background-color: aliceblue;
+}
+
+.fillUsername
+{
+    width: 110px;
+    color: black;
+    background-color: #FFFF96;
+}
+.fillAccountsFillAccountHeader
+{
+    padding-left: 10px;
+    width: 110px;
+}
+
+.fillAccountsClearingFirmHeader
+{
+    width: 110px;
+}
+
+.fillAccountsClearingFirmAccountHeader
+{
+    width: 110px;
+}
+
+.fillAccountsUsernameHeader
+{
+    width: 80px;
+}
+#orderroutingclearingfirms
+{
+    width: 100%;
+    display: block;
+    float: left;
+    background-color: rgb(233, 231, 231);
+}
+#orderroutingclearingfirms .header
+{
+    height: 40px;
+}
+#orderroutingclearingfirms table
+{
+    width: 100%;
+}
+#orderroutingclearingfirms td
+{
+    vertical-align: top;
+}
+#orderroutingclearingfirms td
+{
+    vertical-align: top;
+}
+#orderroutingvalidationerrors td
+{
+    vertical-align: top;
+}
+.clearingFirmsFirmHeader
+{
+    width: 100%;
+    width: 240px;
+}
+.clearingFirmsFirm
+{
+    color: blue;
+    font-weight: bold;
+    background-color: linen;
+}
+.clearingFirmsAccount
+{
+    color: dimgray;
+    background-color: #FFFF96;
+}
+.clearingFirmsUsernames
+{
+    color: black;
+    background-color: aliceblue;
+}
+.clearingFirmsUsernameProviderName {
+    width: 200px;
+}
+.acctnum
+{
+    margin-left: 150px;
+    float: left;
+}
+.uname
+{
+    padding-right: 8px;
+    float: left;
+}
+.firmRow
+{
+    border-bottom: 1px dashed dimgray;
+}
+.accountIdRow
+{
+    padding-bottom: 200px;
+}
+.clearingFirmsUsername
+{
+    padding-right: 50px !important;
+    color: black;
+    background-color: aliceblue;
+    padding-right: 10px;
+}
+.clearingFirmsProviderName
+{
+    color: green;
+    background-color: aliceblue;
+    padding-right: 10px;
+    float: right;
+}
+
+#orderroutingfillaccounts td
+{
+    vertical-align: top;
+}
+#orderroutingfillaccounts tr.header
+{
+    height: 40px;
+}
+#orderroutingfillaccounts table
+{
+    width: 100%;
+    background-color: aliceblue;
+}
+.fillAccountsRow
+{
+    border-bottom: 1px dashed dimgray;
+}
+.spanClearingFirm
+{
+    padding-right: 235px;
+}
+.spanClearingFirmAccountNumber
+{
+    padding-right: 225px;
+}
+.spanClearingFirmUsername
+{
+    padding-right: 310px;
+}
+#orderRoutingUserContainer
+{
+    width: 700px;
+    background-color: aliceblue;
+    font-size: 12px;
+    color: dimgray;
+    font-family: 'Lato' !important;
+    float: left;
+}
+#orderroutingvalidationerrors table{
+    width: 100%;    
+}
+#userDetailUserInfo
+{
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    float: left;
+}
+#userDetailUserInfo div
+{
+    display: inline;
+}
+#userDetailUserInfo label
+{
+    color: black;
+    font-weight: bold;
+}
+#userDetailAccounts
+{
+    width: 100%;
+    margin-top: 10px;
+    float: left;
+}
+#userDetailAccounts div
+{
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+#userDetailAccounts .special
+{
+    font-weight: bold;
+    margin-left: 2px !important;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: midnightblue;
+}
+#userDetailAccounts th
+{
+    text-align: left;
+}
+#userDetailAccounts span
+{
+    padding: 10px;
+}
+.orderAccountProduct
+{
+    color: red;
+}
+.orderAccountFcmAccount
+{
+    color: green;
+}
+
+.orderAccountProductHeader
+{
+    width: 80px;
+    padding-right: 10px;
+}
+.fillAccountName
+{
+    color: purple;
+}
+.fillAccountFcmAccount
+{
+    color: green;
+}
+.fillAccountNameHeader
+{
+    width: 100px;
+    padding-right: 10px;
+}
+#userDetailOrderAccounts tr
+{
+    line-height: 20px; 
+}
+#userDetailOrderAccounts
+{
+    width: 330px;
+    display: inline;
+    border-right: 1px solid dimgray;
+    padding-bottom: 10px;
+    float: left;
+}
+#userDetailFillAccounts tr
+{
+    line-height: 20px; 
+}
+#userDetailFillAccounts
+{
+    width: 320px;
+    display: inline;
+    float: left;
+    padding-bottom: 10px;
+}
+#fillAccountNames
+{
+    margin-bottom: -1px;
+}
+#orderAccountProducts
+{
+    margin-bottom: -1px;
+}
+#addOrderRoutingUserContainer 
+{
+    width: 1024px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: aliceblue;
+    border-bottom: 1px dashed slateblue;
+    float: left;
+}
+#addOrderRoutingUserContainer div {
+    display: inline;
+    float: left;
+}
+#addOrderRoutingUserContainer label {
+    color: blue;
+    font-weight: bold;
+    padding-right : 5px;
+}
+#orderRoutingProvidersSelect 
+{
+    margin-right: 225px;
+    font-size: 11px !important;
+    padding: 3px;
+    color: midnightblue;
+    background-color: InfoBackground;
+    border: 1px solid darkgray;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#senderCompIdsSelect 
+{
+    margin-right: 10px;
+    font-size: 11px !important;
+    padding: 3px;
+    color: midnightblue;
+    background-color: InfoBackground;
+    border: 1px solid darkgray;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px; 
+}
+#addOrderRoutingUserContainer input {
+    width: 90px;
+    padding: 3px;
+    margin-right : 10px;
+    background-color: InfoBackground;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#addOrderRoutingUserButton {
+    padding-top: 3px !important;
+    width: 25px !important;
+    padding : 0px !important;
+    padding-right: 3px !important;
+    margin-bottom: -6px !important;
+    margin-right: 0px !important;
+}
+#cancelAddOrderRoutingUserButton {
+    width: 23px;
+    margin-bottom: -5px;
+}
+#eSignalEntry {
+    float: left;
+    width: 160px;
+    border-radius: 5px;
+    border: 1px solid #A9A9A9;
+    margin-left: 8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 3px;
+    display: none;
+}
+#eSignalEntry input[type=text]{
+    width:150px;
+}
+#eSignalSubscriptionLimitSelect {
+    font-size: 11px !important;
+    padding: 3px;
+    color: midnightblue;
+    background-color: InfoBackground;
+    border: 1px solid darkgray;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}

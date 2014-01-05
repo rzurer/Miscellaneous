@@ -1,0 +1,25 @@
+﻿#allAgreements
+{
+    width: 700px;
+    float: left;
+}
+
+#allAgreements h3
+{
+   text-align: center;
+}
+
+#allAgreements h5
+{
+    margin-left: 10px;
+    text-decoration: underline;
+}
+#allAgreements div {
+    width: 300px;
+    margin-left: 10px;
+    float: left;
+}
+#allAgreements input[type='checkbox'] 
+{
+    margin-right: 10px;
+}

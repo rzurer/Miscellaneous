@@ -1,0 +1,36 @@
+.traderPermissionsTable
+{
+    float: left;
+    width: 900px;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;
+}
+.permissionRosterLabelRow {
+    vertical-align: top;
+}
+.permissionRosterRow {
+    vertical-align: top;
+    border-bottom: 1px dashed #A9A9A9
+}
+.permissionRosterLabelRow td {
+   color: blue;
+   padding-top: 7px;
+   font-size: 14px;
+}
+.permissionRosterRow td{
+    padding-bottom: 7px;
+}
+.permissionRosterRow span{
+    padding-right: 5px;
+    float: left;
+}
+.removed{
+    text-decoration: line-through;
+}
+.added{
+    color: green;
+    font-weight: bold;
+}
+
+

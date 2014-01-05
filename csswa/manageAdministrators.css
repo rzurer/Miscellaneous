@@ -1,0 +1,186 @@
+﻿#manageAdministrators {
+    float: left;
+    width: 100%;
+    font-family: Muli !important;
+    font-size: 13px !important;
+    background-color: whitesmoke;   
+}
+#manageAdministratorsHeader {
+    float: left;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: white;
+    clear: both;
+    border-bottom: 3px dashed gainsboro;
+}
+.assignNewAdministratorPasswordButton, .deleteAdministratorButton {
+   width: 20px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+#manageAdministratorsHeader span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 15px;
+    color: #A9A9A9;
+    float: left;
+}
+#manageAdministratorsHeader img {
+    cursor: pointer;
+    float: left;
+}
+#showAddAdministratorControlImage {
+    width: 30px;
+    margin-top: 8px;  
+}
+#hideAddAdministratorControlButton {
+    margin-top: 8px;  
+    float: left;
+    width: 30px;
+    display: none;
+}
+#addAdministrator {
+    font-family: Muli;
+    float: left;
+    background-color: whitesmoke;
+    display: none;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#usernameLabel {
+    width: 82px !important;
+}
+#addAdministrator label {
+    padding-top: 8px;
+    color: blue;
+    width: 125px;
+    float: left;
+}
+#prefixSpan {
+    float: left;
+     padding-top: 7px;
+     padding-right: 5px;
+    color: black;
+    font-size: 16px;
+}
+#addAdministrator div 
+{
+    float: left;
+    padding-bottom: 10px;
+    width: 650px;
+    clear: both
+}
+#addAdministrator input 
+{
+    margin-right: 10px;
+    float: left;
+}
+#addAdministrator select{
+    width: 170px;
+    margin-right: 10px;
+    float: left;
+}
+.longInput {
+    width: 460px !important;
+    float: left;
+}
+.shortInput {
+    width: 155px !important;
+    float: left;
+}
+
+#createAdministratorButton:hover
+{
+    background: #69a5c7;
+    background: #69a5c7;
+    background: -webkit-linear-gradient(#69a5c7, #5c90ae);
+    background: -moz-linear-gradient(#69a5c7, #5c90ae);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#69a5c7), to(#5c90ae));
+    background: -webkit-linear-gradient(#69a5c7, #5c90ae);
+    background: -moz-linear-gradient(#69a5c7, #5c90ae);
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #43697e;
+}
+#manageAdministratorsErrors {
+    float: left;
+    list-style-type: none;
+    margin-top: -60px;
+    padding: 0 !important;
+}
+.messageContainer{
+    padding-left:7px;
+}
+.messageContainer div > span {
+    font-weight: bold;
+}
+#createAdministratorButton.pressed
+{
+    -moz-box-shadow: #fff 0 0 2px;
+    -webkit-box-shadow: #fff 0 0 2px;
+    background: #5c90ae;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5c90ae), to(#69a5c7));
+    background: -webkit-linear-gradient(#5c90ae, #69a5c7);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5c90ae), to(#69a5c7));
+    background: -webkit-linear-gradient(#5c90ae, #69a5c7);
+    background: -moz-linear-gradient(#5c90ae, #69a5c7);
+    background: -ms-linear-gradient(#5c90ae, #69a5c7);
+    border-left: 1px solid #3c5f73;
+    border-top: 1px solid #3c5f73;
+    color: #fff;
+}
+#createAdministratorButton{
+    text-align: center;
+    border: 1px solid dimgray;
+    background: -moz-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e8e8e8), color-stop(49%, #d1d1d1), color-stop(100%, #bfc5c9));
+    background: -webkit-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -o-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    background: -ms-linear-gradient(top, #e8e8e8 0, #d1d1d1 49%, #bfc5c9 100%);
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: "Trebuchet MS";
+    font-size: 18px;
+    font-weight: bold;
+    height: 20px;
+    padding-top: 10px;
+    margin-left: 367px;
+    margin-top: 10px;
+    width: 235px !important;
+}
+#administratorsTableContainer {
+    float: left;
+    width: 100%;
+}
+.administratorsTable {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+.administratorsTableHeaderRow {
+    cursor: pointer;
+    text-align: left;
+}
+.administratorsTable th {
+   cursor: pointer;
+   padding-left: 5px;
+    padding-top: 10px;
+}
+.administratorsTable td {
+  padding-right: 5px;
+  cursor: pointer;
+}
+.administratorsTableRow {
+    line-height: 25px;
+    border-bottom: 1px dashed lightblue;
+}
+.administratorsTableRow:hover {
+    background-color: #FAF887;
+}
+.administratorUsername {
+    color: green;
+    font-weight: bold;
+}

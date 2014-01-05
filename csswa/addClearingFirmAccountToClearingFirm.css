@@ -1,0 +1,64 @@
+﻿.addClearingFirmAccountToClearingFirmContainer{
+    font-family: Ubuntu;
+    padding-top: 10px;
+    font-size: 13px;
+    width : 780px;
+    border: 3px solid gainsboro;
+    display: none;
+    margin-bottom: 20px;
+    float: left;
+}
+.addClearingFirmAccountToClearingFirmContainerLabel{
+    font-weight: bold;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 10px;
+    color: blue;
+    float: left;
+}
+.addClearingFirmAccountToClearingFirmContainerInput{
+    width: 111px;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E5E5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.executingFirmsContainer {
+    margin-right: 20px;
+}
+.accountCommentContainerLabel {
+    padding-right: 34px;  
+}
+.accountComment{
+    width: 547px !important;
+}
+.cancelClearingFirmAccountAddButton
+{
+    margin-bottom: -8px;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 25px;
+}
+.clearingFirmAccountAddButton{
+    opacity: 0.3;
+    cursor: pointer;
+    margin-bottom: -8px;
+    margin-left: 5px;
+    width: 28px;
+}
+.clearingFirmLabel {
+    color: maroon !important;
+    width: 105px;
+}
+.line
+{
+    padding-left: 10px;
+    width: 100%;
+    clear: both;
+}
+.line > div
+{
+    display: inline;
+    float: left;
+}

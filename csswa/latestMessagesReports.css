@@ -1,0 +1,79 @@
+﻿#latestMessagesReport{
+    font-family: Ubuntu !important;
+    font-size: 12px;
+    width: 100%;
+    background-color: whitesmoke;
+    float: left;
+    padding-left: 10px;
+}
+.latestMessagesReport
+{
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 0;
+    border-spacing: 0;
+    width: 990px;
+    float: left;
+    clear: both;
+}
+.latestMessagesReport tr
+{
+    vertical-align: top;
+    height: 25px;
+    border-bottom: 1px dotted lightblue;
+}
+.latestMessagesReport td
+{
+    padding: 4px;
+}
+.latestMessagesReport th
+{
+    font-size: 12px;
+    text-align: left;
+    color: dodgerblue;
+}
+.messageButton {
+    border-radius: 4px;
+    margin-top: 2px;
+    width: 40px;
+    height: 18px;
+}
+.unselectedButton {
+    border: 1px solid darkgray;
+    background-color: gainsboro;
+}
+.unselectedButton:hover {
+    border: 1px solid red;
+    background-color: darkgray;
+}
+.selectedButton {
+    border: 1px solid black;
+    background-color: darkgray;
+}
+.xmlMessage {
+    border: 1px solid orangered;
+    background-color: white;
+    padding: 10px;
+}
+#fecHeader {
+    width: 985px;
+    display: inline;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+    float: left;
+}
+#fecLabel {
+   font-size: 16px;
+   font-weight: bold;  
+}
+#chooseVenue {
+   float: right;
+   padding-right: 10px;
+   font-size: 13px;
+}
+#fecHeader select {
+   margin-top: -10px;
+   float: right;
+}

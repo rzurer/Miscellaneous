@@ -1,0 +1,321 @@
+﻿#fcmAccountsControlContainer
+{
+    width: 725px;
+    background-color: aliceblue;
+    font-size: 12px;
+    color: dimgray;
+    font-family: 'Lato' !important;
+    float: left;
+}
+#userClearingFirmAccountsTable td{
+    vertical-align: top;
+}
+#userClearingFirmAccountsTable th{
+    vertical-align: top;
+}
+#userClearingFirmAccountsTable td
+{
+    border-bottom: 1px solid slategrey;
+}
+#addAccountToClearingFirmContainer
+{
+    display: none;
+    padding: 5px;
+}
+.innerTable td
+{
+    border-bottom: 0px !important;
+}
+#userClearingFirmAccountsTable tr
+{
+    line-height: 20px;
+}
+.fcmAccountCell
+{
+    color: black;
+    font-weight: bold;
+    padding-left: 10px !important;
+}
+.fcmAccountRowHeader
+{
+    vertical-align: top;
+    background-color: #E9E7E7;
+}
+.fcmAccountRowHeader th{
+    text-align: left;
+    padding-top: 5px;
+}
+.fcmAccountRowHeader td{
+    text-align: left;
+    padding-top: 5px;
+}
+.fcmAccountRow img
+{
+    margin-top: 2px;
+}
+
+.fcmAccountHeaderCell
+{
+    width: 100px;
+    color: black;
+    padding-left: 10px;
+}
+.fcmAccountCell
+{
+    color: black;
+}
+.addRemoveAccountsHeaderRow
+{
+    width: 285px;
+}
+.addOrderAccountButtonCell
+{
+    width: 20px;
+}
+.addFillAccountButtonCell
+{
+    width: 20px;
+}
+.autocompletesCell
+{
+    width: 245px;
+}
+.orderAccountsHeaderCell
+{
+    width: 150px;
+    color: red;
+}
+.orderAccountProduct
+{
+    width: 100px;
+    color: red;
+}
+.fillAccountsHeaderCell
+{
+    width: 170px;
+    color: purple;
+}
+.fillAccountName
+{
+    width: 80px;
+    color: purple;
+}
+
+.addOrderAccountButton
+{
+    height: 20px !important;
+    cursor: pointer;
+    margin-left: 0px !important;
+}
+.cancelAddOrderAccountButton
+{
+    height: 18px !important;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.addFillAccountButton
+{
+    height: 20px !important;
+    cursor: pointer;
+    margin-left: 0px !important;
+}
+.cancelAddFillAccountButton
+{
+    height: 18px !important;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.addAccountButton
+{
+    height: 20px !important;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.saveCancelButtonCell
+{
+    vertical-align: middle !important;
+}
+.productsAutocomplete
+{
+    margin-left: 10px;
+    background-color: #FCF0F1;
+    width: 150px;
+    text-transform: uppercase;
+}
+.fillAccountNamesAutocomplete
+{
+    margin-left: 10px;
+    background-color: #F4ECFC;
+    width: 150px;
+    text-transform: uppercase;
+}
+#bluePlusImage
+{
+    height: 20px;
+    cursor: pointer;
+}
+#addAccountToClearingFirmButton
+{
+    height: 20px;
+    margin-bottom: -8px;
+    cursor: pointer;
+}
+.userDetailClearingFirm
+{
+    margin-right: 20px;
+    float: right;
+}
+.addClearingFirmAccountToUserControl
+{
+    height: 30px;
+    float: left;
+}
+#addClearingFirmAccountToUserTable
+{
+    margin-top: -3px;
+    margin-left: 3px;
+}
+#addClearingFirmAccountToUserTable td
+{
+    border-bottom: 0px !important;
+}
+#clearingFirmAccountsTable
+{
+    margin-top: -8px;
+}
+.userDetailAddClearingFirmAccount table
+{
+    height: 40px;
+    border-spacing: 0px !important;
+}
+.userDetailAddClearingFirmAccount td
+{
+    vertical-align: middle;
+}
+.cancelAddClearingFirmAccountButton
+{
+    height: 18px !important;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+.addClearingFirmAccountButton
+{
+    height: 20px !important;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+#userDetailUserInfo
+{
+    float: left;
+    clear: both;
+}
+#userDetailUserInfo span
+{
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.userDetailUsername span
+{
+    color: black;
+}
+.userDetailOrderRoutingProvider span
+{
+    color: green;
+}
+.userDetailExternalUsername span
+{
+    color: blue;
+}
+
+.userDetailClearingFirm span
+{
+    color: maroon;
+}
+#addClearingFirmAccountToClearingFirmDiv
+{
+    font-family: Ubuntu;
+    padding-top: 10px;
+    font-size: 13px;
+    border: 3px solid gainsboro;
+    width: 700px;
+    margin-bottom: 20px;
+    float: left;
+    display: none;
+}
+#addClearingFirmAccountToClearingFirmDiv label
+{
+    font-weight: bold;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 10px;
+    color: blue;
+    float: left;
+}
+#addClearingFirmAccountToClearingFirmDiv div > input
+{
+    width: 110px;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E5E5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.oruLine
+{
+    width: 725px;
+    float: left;
+    clear: both;
+}
+.oruLine div
+{
+    padding-bottom: 5px;
+    display: inline;
+    float: left;
+}
+#oruAddClearingFirmAccountToClearingFirmContainer
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: midnightblue;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: linen;
+    float: left;
+}
+#oruAddClearingFirmAccountToClearingFirmContainer label
+{
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    float: left;
+}
+#oruClearingFirmAccountContainer input
+{
+    margin-top: 5px;
+    float: left;
+}
+
+#oruExecutingFirmsContainer input
+{
+    margin-top: 5px;
+    float: left;
+}
+#oruAccountCommentContainer img {
+    width: 20px;
+    margin-bottom: -6px;
+    margin-left: 7px;
+    cursor: pointer;   
+}
+#oruAccountComment
+{
+    width: 450px;
+    margin-left: 27px;
+}
+#cancelAddAccountImage {
+    margin-left: 3px;
+}

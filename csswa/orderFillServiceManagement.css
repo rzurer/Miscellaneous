@@ -1,0 +1,477 @@
+﻿#orderFillServiceManagement {
+    width: 840px;
+    margin-top: 15px;
+    font-family: Lato !important;
+    font-size: 12px;
+    float: left;
+}
+#dashboard {
+    border-bottom: 1px dashed dimgray;
+    width: 100%;
+    float: left;
+}
+#titleContainer {
+    margin-top: 3px;
+    margin-bottom: 20px;
+    font-family: Ubuntu !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#showAddMappingControlsImage {
+    width: 32px;
+    margin-top: 8px;
+    margin-left: 15px;
+}
+#showAddTradeAccountToUserControlsImage {
+    width: 36px;
+    margin-top: 8px;
+    margin-left: 15px;  
+}
+#showAddAccountToClearingFirmControlsImage {
+    width: 33px;
+    margin-bottom: 2px;
+    margin-left: 15px;
+}
+#showAddExemptionControlsImage {
+    width: 32px;
+    margin-left: 15px;
+}
+#addMappingButtons {
+   margin-top: 22px;
+   float: right !important;
+}
+#addExemptionButtons {
+   margin-right: 0 !important;
+   width:80px;
+   float: right;
+}
+#orderFillServiceManagement select {
+    cursor: pointer;
+}
+#orderFillServiceManagement img {
+    cursor: pointer;
+}
+#orderFillServiceManagement div {
+  margin-right: 20px;
+  float: left;
+}
+#orderFillServiceManagement label {
+    padding-left: 2px;
+    padding-bottom: 7px;
+    font-weight: bold;
+    float: left;
+}
+#tradeAccountMappings {
+   display: none;
+   width: 100%;
+}
+#tradeAccountExemptions {
+   display: none;
+   width: 100%;
+}
+#tradeAccountMappingsTable tr {
+    cursor: pointer;
+}
+#tradeAccountMappingsTable {
+    width: 100%;
+    background-color: aliceblue;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.hideMappingUsername {
+    color: aliceblue !important;
+}
+#tradeAccountExemptionsTable tr {
+    cursor: pointer;
+}
+#tradeAccountExemptionsTable {
+    width: 100%;
+    background-color: #F9F9CE;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.hideExemptionUsername {
+   color:  #F9F9CE !important; 
+}
+#tradeAccountExemptionsTable tr.first td{
+    padding-top: 10px;
+}
+.orderFillServiceMappingsHeader 
+{
+    font-family: Lato !important;
+    font-size: 12px !important;
+    vertical-align: top;
+    border-bottom: 1px solid dimgray;
+    background-color: #E9E7E7;
+}
+.orderFillServiceMappingsHeader th {
+    text-align: left;
+    padding-top: 10px;
+}
+.orderFillServiceMappingsHeader select {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 11px !important;
+}
+.orderFillServiceMappingsHeader .username {
+    padding-left: 15px;
+}
+.orderFillServiceMappingsHeader .ofsProvider {
+    padding-left: 10px;
+}
+.orderFillServiceMappingsRow td {
+    height: 22px;
+    font-weight: normal !important;
+    font-size: 12px !important;
+}
+.orderFillServiceMappingsRow .providerDescription {
+    padding-left: 10px;
+    color : darkgreen !important;
+}
+.orderFillServiceMappingsRow .username {
+   padding-left: 15px;
+   color : black;
+   font-weight: bold !important;
+}
+.orderFillServiceMappingsRow .internalTradeAccount {
+   color : purple !important;
+}
+.orderFillServiceMappingsRow .clearingFirm {
+    color : blue !important;
+}
+.orderFillServiceMappingsRow .externalTradeAccount {
+   color : orangered !important;
+}
+.orderFillServiceMappingsRow .extension {
+    color : black !important;
+    border-right: 1px solid gainsboro;
+}
+.orderFillServiceExemptionsHeader {
+    vertical-align: top;
+    border-bottom: 1px solid dimgray;
+    background-color: #E9E7E7;
+}
+.orderFillServiceExemptionsHeader th {
+    padding-top: 10px;
+    font-family: Lato !important;
+    font-size: 12px !important;
+    text-align: left;
+}
+.orderFillServiceExemptionsHeader select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+   font-size: 11px !important;
+}
+.orderFillServiceExemptionsHeader .username {
+    padding-left: 15px;
+}
+.orderFillServiceExemptionsHeader .ofsProvider {
+    padding-left: 10px;
+}
+.orderFillServiceExemptionsRow td {
+    height: 22px;
+    font-weight: normal !important;
+    font-size: 12px !important;
+}
+.orderFillServiceExemptionsRow .providerDescription {
+    padding-left: 10px;
+    color : darkgreen !important;
+}
+.orderFillServiceExemptionsRow .username {
+   padding-left: 15px;
+   color : black !important;
+   font-weight: bold !important;
+}
+.orderFillServiceExemptionsRow .internalTradeAccount {
+   color : purple !important;
+}
+.orderFillServiceExemptionsRow .clearingFirm {
+    color : blue !important;
+}
+.orderFillServiceExemptionsRow .externalTradeAccount {
+   color : orangered !important;
+}
+.orderFillServiceExemptionsRow .isv {
+   color : darkgreen !important;
+}
+.orderFillServiceExemptionsRow .sourceSessionID {
+    color : darkred !important;
+    border-right: 1px solid gainsboro;
+}
+.orderFillServiceExemptionsRow .actions img{
+    margin-top: 2px;
+}
+#filterOfsSelectExemptions {
+   width: 50px;
+}
+#filterUsernamesSelectExemptions {
+    width: 80px;
+}
+#filterOfsSelect {
+   width: 50px;
+}
+#filterUsernamesSelect {
+    width: 80px;
+}
+#ofsProviders {
+    width: 80px;
+}
+#ofsProviders select{
+    width: 80px;
+}
+#usernames{
+    width: 115px;
+}
+#usernames select{
+    width: 115px;
+}
+#internalTradeAccounts{
+    width: 115px;
+}
+#internalTradeAccounts select{
+    width: 115px;
+}
+#clearingFirms {
+    width: 100px;
+}
+#clearingFirms select{
+    width: 100px;
+}
+#fcmAccounts {
+    width: 100px;
+}
+#fcmAccounts select {
+    width: 100px;
+}
+
+#extension {
+    width: 120px;
+}
+#extensionInput 
+{
+    margin-left: 2px;
+    width: 120px;
+}
+
+#ofsProvidersExemption {
+    width: 80px;
+    margin-left: 10px;
+}
+#ofsProvidersExemption label{
+    width: 80px;
+}
+#usernamesExemption{
+    width: 80px;
+}
+#usernamesExemption label{
+    width: 80px;
+}
+#internalTradeAccountsExemption{
+    width: 110px;
+}
+#internalTradeAccountsExemption label{
+    width: 110px;
+}
+#clearingFirmsExemption {
+    width: 110px;
+}
+#clearingFirmsExemption label{
+    width: 110px;
+}
+#fcmAccountsExemption {
+    width: 100px;
+}
+#fcmAccountsExemption label {
+    width: 100px;
+}
+#extensionExemption {
+    width: 120px;
+}
+#extensionExemption label {
+    width: 120px;
+}
+#exemptionSelects {
+    padding: 10px 0;
+    border-top: 1px dashed lightblue;
+}
+#exemptionSelects select {
+    font-family: Lato !important;
+}
+
+#exemptionSelects label {
+    color: blue !important;
+}
+
+#isvs {
+    width: 260px;
+    display: none;
+}
+#isvs select {
+    width: 260px;
+}
+#sourceSessions {
+    display: none;
+    width: 400px;
+    margin-left: 30px;
+}
+#sourceSessions select {
+   width: 360px;
+}
+#sourceSessionLabel {
+    margin-right: 25px;
+}
+#sourceSessionLegend label {
+    color: dimgray !important;
+    font-weight: normal !important;
+}
+.pipeLabel {
+  margin: 0 7px; 
+}
+
+#ofsProviders {
+   margin-left: 10px;
+}
+#isvs {
+   margin-left: 10px;
+}
+#addMappingControls {
+   display: none;
+   background-color: aliceblue;
+   width: 100%;
+   padding-bottom: 7px;
+   border-bottom: 1px dashed dimgray;
+   padding-top: 10px;
+   margin-right: 0 !important;
+}
+#addMappingControls label {
+    color: blue;
+}
+#addMappingControls select {
+    font-family: Lato !important;
+    font-size: 12px;
+}
+#addExemptionControls .headerLabel {
+    color: blue;
+}
+#addExemptionControls .infoLabel {
+    font-weight: normal;
+}
+#addExemptionControls {
+   display: none;
+   background-color: aliceblue;
+   width: 100%;
+   border-bottom: 1px dashed dimgray;
+}
+.deriveExemptionFromMappingsImage {
+    height: 22px;
+    margin-left: 5px;
+    margin-bottom: -2px;
+    display: none;
+}
+#editMappingImage {
+    width: 16px;
+    margin-left:  15px;
+    display: none;   
+}
+.deleteMappingExemptionImage {
+    display: none;
+    margin-left: 5px;
+    width: 16px;
+}
+.addButton {
+    width: 24px;
+    margin-left: 5px;
+}
+.cancelAddButton {
+    width: 24px;
+    margin-left: 5px;
+}
+.readonly {
+    font-weight: normal !important;
+    padding: 0 !important;
+}
+.saveEditMappingImage {
+    width: 17px;
+    display: none;
+    margin-left: 8px;
+}
+#cancelEditMappingImage {
+    width: 20px;
+    margin-left: 5px;
+    display: none;   
+}
+#navigation span {
+    font-size: 10px;
+    font-weight: bold;
+}
+#exemptionsSummary {
+    padding-top: 10px;
+    color: gray;
+    float: right !important;
+    display: none;
+}
+#mappingsSummary {
+    padding-top: 10px;
+    color: gray;
+    float: right !important;
+}
+.mappingsExemptionsSummaryHeader {
+    margin-right: 20px;
+    color: steelblue;
+}
+.mappingsExemptionsSummaryItem {
+  font-weight: normal !important;
+  margin-right: 15px;
+}
+#loadingContainer {
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    color: lightblue;
+    width: 170px;
+    height: 20px;
+    float: left;
+}
+#loadingContainer div {
+    text-align: center;
+    vertical-align: middle; 
+    margin-left: 10px;   
+}
+#addExemptionHeader {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    text-transform:uppercase;
+    padding: 7px 0;
+    border-bottom: 1px dashed dimgray;
+    margin-bottom: 7px;
+    background-color: beige;
+    font-size: 13px;
+    font-family: Ubuntu !important;
+    color: black;
+}
+
+
+.ofsAddClearingFirmAccountToClearingFirmContainer{
+    font-family: Lato;
+    font-size: 11px;
+    width: 100%;
+    padding-top: 10px;
+    display: none;
+    border-bottom: 1px dashed dimgray;
+    background-color: aliceblue !important;
+    float: left;
+}
+.ofsAccountComment{
+    width: 563px !important;
+}
+.ofsAddClearingFirmAccountToClearingFirmContainerInput{
+    font-family: Lato;
+    font-size: 11px;
+    width: 111px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #E5E5E5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

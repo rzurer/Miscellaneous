@@ -1,0 +1,78 @@
+﻿#showOrderAndFillReports
+{
+    font-family: Ubuntu !important;
+    font-size: 12px;
+    width: 100%;
+    background-color: whitesmoke;
+    float: left;
+}
+.orderFillReport
+{
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 0;
+    border-spacing: 0;
+    float: left;
+    clear: both;
+}
+.orderFillReport tr
+{
+    line-height: 25px;
+    border-bottom: 1px dotted lightblue;
+}
+.orderFillReport th
+{
+    font-size: 12px;
+    text-align: left;
+    color: dodgerblue;
+}
+.orderFillReport td
+{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.successFailureImage
+{
+    cursor: pointer;
+}
+#orderFillErrorContainer
+{
+    position: absolute;
+}
+#orderFillErrorContainer div
+{
+    background-color: #FFFF96;
+    padding: 12px;
+    border: 1px solid gainsboro;
+}
+#showOrderAndFillReports #navigation
+{
+    border-bottom: none;
+}
+#ordersReportContainer
+{
+    display: none;
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+#fillsReportContainer
+{
+    display: none;
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+#chooseProvider 
+{
+    display: inline;
+    color: dimgray;
+    margin-top: 5px;
+    font-weight: bold;
+    padding-left: 50px;
+    width: 600px;
+    float: left;
+}
+#chooseProvider select {
+    margin-left: 10px;
+}

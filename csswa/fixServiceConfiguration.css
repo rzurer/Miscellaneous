@@ -1,0 +1,112 @@
+﻿#fixServices
+{
+    font-family: Lato !important;
+    font-size: 14px !important;
+    width: 1024px;
+    float: left;
+}
+#fixServiceConfigurations {
+    font-family: 'courier new' !important;
+    font-size: 12px !important;
+    width: 1024px;
+    float: left; 
+}
+.nonEditableCell {
+    color: darkgray;
+}
+#fixServiceConfigurations input {
+    font-family: 'courier new' !important;
+    color: blue;
+    background-color: aliceblue;
+    border: solid 1px #E5E5E5;
+}
+#fixServiceConfigurations img {
+    width: 17px;
+    margin-left: 7px;
+    cursor: pointer;
+}
+#fixServiceConfigurationTable tr.first > td {
+    padding-top: 10px !important;
+}
+#fixServiceConfigurationTable th{
+    text-align: left;
+    padding: 3px 0px;
+    border-bottom: 1px solid purple;
+}
+#fixServices div
+{
+    float: left;
+}
+#fixServices label
+{
+    font-weight: bold;
+    margin-right: 5px;
+}
+#fixServiceSelect
+{
+   padding: 5px 10px !important;
+   font-family: "Trebuchet MS" !important;
+}
+#fixServices img
+{
+    width: 24px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.addConfiguration {
+    width: 25px !important;
+    float: right;
+}
+.deleteEditImage
+{
+    display: none;
+}
+#deleteFixServiceImage
+{
+    width: 22px !important;
+}
+.seriousWarning
+{
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+.importantName {
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: blue;
+}
+#addFixServiceImage {
+    margin-right: 5px;
+}
+
+#deleteEditAddImages {
+     margin-left: 5px;
+     margin-top: 6px;
+}
+#addCancelImages {
+    margin-top: 5px;
+}
+#addEditFixService {
+    display: none;
+    width: 600px;
+}
+#labelServiceID {
+    display: none;
+    margin-left: 10px;
+}
+#serviceID {
+    width: 150px;
+}
+#description {
+    width: 350px;
+}
+#editFixServiceDescriptionButton {
+    display: none;    
+}
+#fixServiceConfigurationTable {
+  border-spacing:0;
+  border-collapse:collapse;
+}

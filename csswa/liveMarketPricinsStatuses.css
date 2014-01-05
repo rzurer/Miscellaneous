@@ -1,0 +1,94 @@
+﻿#liveMarketsPricingStatusesContainer {
+    font-family: Lato;
+    width: 800px;
+    float: left;
+    background-color: aliceblue;
+}
+#liveMarketsPricingStatusesTable
+{
+    display: inline;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+#liveMarketsPricingStatusesTable th
+{
+   padding-bottom: 6px;
+   font-size: 12px;
+   color: darkgreen;
+}
+#pageTitleContainer {
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    color: blueviolet;
+    display: inline;
+    float: left;
+}
+#liveMarketsPricingStatusesTable td
+{
+    padding-right: 10px;
+}
+#disabledLmpUsersContainer
+{
+    padding-top: 15px;
+    width: 788px;
+    border-top: 1px dotted midnightblue;
+    padding-left: 10px;
+    display: inline;
+    float: left;
+    padding-bottom: 15px;
+}
+#disabledLmpUsersContainer div
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    float: left;
+    clear: right;
+}
+#disabledLmpUsersContainer input
+{
+    text-transform: uppercase;
+    width: 120px;
+    float: left;
+    clear: right;
+}
+#enableLmpImage
+{
+    width: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#disableLmpImage {
+    width: 18px;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-right: 10px;
+}
+.lmpUsernameCell {
+     padding-right: 10px;
+}
+.readonlyLmpCell {
+    width: 200px;
+}
+.disableLmpButtonCell {
+    border-right: 1px solid black;
+}
+.spacerCell {
+    width: 20px;
+}
+.lmpLicenseCell {
+    padding-right: 20px !important;
+}
+.lmpUsersSummaryContainer 
+{
+    color: dimgray;
+    border: 1px dotted dimgray;
+    font-size: 11px;
+    background-color: InfoBackground;
+    padding-left: 10px;
+    width: 788px;
+}

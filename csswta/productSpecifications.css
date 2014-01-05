@@ -1,0 +1,148 @@
+@charset 'UTF-8';
+#productSpecificationsTable {
+    cursor: pointer;
+    font-size: 12px;
+    width: 950px;
+}
+#productSpecificationsTable tr {
+    border-bottom: 1px dotted #1e90ff;
+    border-bottom: 1px dotted rgba(30, 144, 255, 0.5);
+}
+#productSpecificationsTable tr:hover {
+    background-color: #FFFF99;
+}
+#productSpecificationsTable th {
+    vertical-align: top;
+    text-align: left;
+    padding-bottom: 10px;
+}
+#productSpecificationsTable td {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.holidayScheduleButton {
+    border: none;
+    padding-top: 3px;
+    padding-left: 7px;
+}
+.contractDefinitionLink {
+    opacity: 0.6;
+    border: none;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+#calendarContainer{
+    color : #696969;
+    background-color: white !important;
+    font-family: 'Sintony';
+    font-size: 9px;
+    font-weight: bold;
+    cursor:pointer;
+}
+.yearTable{
+    width: 950px;
+    display: none;
+}
+.monthTableHeader {
+    font-size : 11px;
+    color: black;
+}
+.daysOfWeekHeader{
+    color: blue;
+    vertical-align: top;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
+}
+.calendarCell{
+    vertical-align: top; 
+    width: 28px;
+    height: 28px;
+    border: 1px solid gainsboro;
+}
+.weekendCell{
+    color: darkgray;
+}
+.isToday {
+    color:white;
+    background-color:black;
+}
+.yearCell{
+    font-size : 16px;
+}
+.productCell {
+    font-size : 16px;
+    text-align: left;
+    font-weight: bold;
+}
+.productCell span{
+    color: red;
+}
+.yearInfoCell{
+    font-size : 12px;
+    text-align: right;
+    font-weight: normal;
+}
+.yearCell img{
+    width: 23px;
+    margin-bottom: -5px;
+}
+.yearCell span{
+    width: 23px;
+    padding: 0 8px;
+}
+.monthContainerCell{
+    border : 1px solid gainsboro;
+    padding : 2px;
+}
+.monthContainerRow{
+    vertical-align : top;
+}
+.holidayScheduleNameRow {
+    vertical-align : top;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yearHeaderRow {
+    line-height: 30px;
+    color: black;
+}
+.holiday {
+    background-color: pink;
+    color: red;
+}
+.expirationDate {
+    background-color: lightgreen;
+    color: blue;
+}
+.holidayExpirationDate {
+    background-color: brown;
+    color: black;
+}
+.calendarInfoContainer {
+    display: none;
+    position: absolute;
+    background-color: InfoBackground;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 10px;
+    border: 1px solid darkgrey;
+}
+.contractInformationTable {
+     width: 240px;  
+}
+.info-label 
+{
+   vertical-align : top;
+   width: 135px;  
+}
+.businessDaysInMonth {
+    color: #1e90ff;
+}
+#nameFilter span{
+    padding-right: 10px;
+}
+#nameFilter input{
+    width: 300px;
+}

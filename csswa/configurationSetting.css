@@ -1,0 +1,49 @@
+﻿#manageEnableExcelRTDServer {
+  width: 100%;
+  float: left;
+  margin-left: 10px;
+}
+#manageEnableExcelRTDServer label{
+    float: left;
+    padding-right: 10px;
+    margin-top:15px;
+}
+#enableDisableExcelRTDServerButton 
+{
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 80px;
+    display: none;
+    border: 1px solid grey;
+    background-color: gainsboro;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+}
+#enableDisableExcelRTDServerButton:hover {
+    background-color: yellow;
+}
+#enabledUsersHeader 
+{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed gainsboro;
+    font-size: 14px;
+    font-weight: bold;
+    width: 450px;
+    float: left;
+}
+#enabledUsersContainer 
+{
+       text-align: left;
+  width: 100%;
+    float: left;
+}
+.enabledUsersTable td {
+    padding: 0 10px;
+}
+        
