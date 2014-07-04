@@ -171,7 +171,7 @@ define(['common', 'orderRoutingUserDataAccess'], function (common, dataAccess) {
             };
             createESignalSubscriptionLimitSelect = function () {
                 var eSignalSubscriptionLimitSelect = $('<select>').attr('id', 'eSignalSubscriptionLimitSelect'),
-                    limits = [1000, 1500, 2000, 2500];
+                    limits = [1000, 1500, 2000, 2500, 5000];
                 limits.forEach(function (limit) {
                     var option;
                     option = $('<option>');

@@ -116,6 +116,7 @@ define(['manageAdministratorsDataAccess', 'htmlHelper', 'common', 'manageAdminis
             var callback = function (response) {
                 if (!response.Success) {
                     manageAdministratorsError.text(response.Message);
+                    dataAccess.getAdministratorRoles(fillAdministratorRolesAndDisplayAdministrators);
                     return;
                 }
             };

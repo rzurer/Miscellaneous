@@ -1,6 +1,6 @@
 ﻿/*globals $, define */
-"use strict";
 define(['common'], function (common) {
+    "use strict";
     var helper = {
         getSelectValues: function (select) {
             var val, values = [];
@@ -25,6 +25,31 @@ define(['common'], function (common) {
             var anchor = helper.createAnchor(url, '', openInNewWindow, classname);
             anchor.append(image);
             return anchor;
+        },                             
+        truncateAndShow: function (source, maxLength, parent, control, className, wantMoreButton) {
+            var span, truncatedText;
+            if (!source || source.length <= maxLength) {
+                parent.text(source);
+                return;
+            }
+            truncatedText = source.substring(0, maxLength) + ' ...';
+            parent.text(truncatedText);
+            if (wantMoreButton) {
+                span = $('<span>').addClass('showMore').text('more');
+                parent.parent().append(span);
+                span.on('click', function() {
+                    common.showToaster(parent, source, 0, 0, false, control, -1, null, className);
+                });
+            } else {
+                parent.on('click', function () {
+                    common.showToaster(parent, source, 0, 0, false, control, -1, null, className);
+                });
+            }
+
+            control.off('click');
+            control.on('click', function () {
+                control.hide();
+            });
         },
         createAnchor: function (url, text, openInNewWindow, title, classname) {
             var anchor = $('<a>').attr('href', url);
@@ -53,7 +78,7 @@ define(['common'], function (common) {
                 select.append(helper.createOption(text, text));
             }
         },
-        createOptionBase: function (value, title, className) {
+        createOptionBase: function (value, title, className, id) {
             var option = $('<option/>');
             option.val(value);
             if (title) {
@@ -62,10 +87,13 @@ define(['common'], function (common) {
             if (className) {
                 option.addClass(className);
             }
+            if (id) {
+                option.attr('id', id);
+            }
             return option;
         },
-        createOption: function (text, value, title, className) {
-            var option = helper.createOptionBase(value, title, className);
+        createOption: function (text, value, title, className, id) {
+            var option = helper.createOptionBase(value, title, className, id);
             option.text(text);
             return option;
         },
@@ -83,6 +111,25 @@ define(['common'], function (common) {
             });
             return destinationSelect;
         },
+        createSelectFromList: function (id, list, classname, emptyOptionText, title) {
+            var select = $("<select>");
+            if (id) {
+                select.attr('id', id);
+            }
+            if (classname) {
+                select.addClass(classname);
+            }
+            if (title) {
+                select.attr('title', title);
+            }
+            if (emptyOptionText) {
+                select.append(helper.createOption(emptyOptionText, ''));
+            }
+            list.forEach(function (element) {
+                select.append(helper.createOption(element, element));
+            });
+            return select;
+        },
         createSelect: function (id, classname, selectMessage, emptyOptionText) {
             var select = $("<select>");
             if (id) {
@@ -99,10 +146,10 @@ define(['common'], function (common) {
             select.append(helper.createOption(emptyOptionText || '<select>', '', selectMessage));
             select.attr('title', selectMessage);
         },
-        fillSelectFromList: function (select, selectMessage, list, emptyOptionText) {
+        fillSelectFromList: function (select, selectMessage, list, emptyOptionText, textProperty, valueProperty) {
             helper.initializeSelect(select, selectMessage, emptyOptionText);
             list.forEach(function (element) {
-                select.append(helper.createOption(element, element));
+                select.append(helper.createOption(element[textProperty] || element, element[valueProperty] || element));
             });
         },
         fillSelectFromKeyValuePairs: function (select, selectMessage, keyValuePairs, emptyOptionText) {
@@ -118,6 +165,16 @@ define(['common'], function (common) {
                 return;
             }
             $(this).attr("title", title);
+        },
+        getSelectedOption: function (select) {
+            return $("#" + select.attr('id') + " option:selected").first();
+        },
+        getSelectedOptionTextVerbatim: function (select) {
+            return $("#" + select.attr('id') + " option:selected").text();
+        },
+        getSelectedOptionText: function (select) {
+            var text = $("#" + select.attr('id') + " option:selected").text();
+            return text.indexOf('<') !== -1 || text.indexOf('>') !== -1 ? '' : text;
         },
         createLabel: function (text, className, id) {
             var label = $("<label>");
@@ -174,6 +231,35 @@ define(['common'], function (common) {
             }
             return checkbox;
         },
+        createRadioInputGroup: function (id, textValuePairs, defaultToValue, className, clickMethod) {
+            var result;
+            result = $('<div>').attr('id', id);
+            if (className) {
+                result.addClass(className);
+            }
+            if (!textValuePairs || textValuePairs.length === 0) {
+                return result;
+            }
+            textValuePairs.forEach(function (keyValuePair) {
+                var container, radio, label;
+                container = $('<div>');
+                radio = $('<input>').attr({ 'type': 'radio', "name": id }).val(keyValuePair.value);
+                radio.bind('click', function () {
+                    clickMethod.apply(this);
+                });
+                if (defaultToValue && defaultToValue === keyValuePair.value) {
+                    radio.attr('checked', 'checked');
+                }
+                container.append(radio);
+                label = $('<div>').text(keyValuePair.text);
+                label.bind('click', function () {
+                    radio.trigger('click');
+                });
+                container.append(label);
+                result.append(container);
+            });
+            return result;
+        },
         enableTristate: function (checkbox, setStateCallback, filterCallback) {
             checkbox.data('checked', 0);
             checkbox.click(function () {
@@ -216,7 +302,7 @@ define(['common'], function (common) {
             }
             return input;
         },
-        createFixedColumnsTable: function (data, cellsPerRow, className, cellClick) {
+        createFixedColumnsTable: function (data, cellsPerRow, className, cellClick, enter, leave) {
             var i, k, item, row, cell, table, length, remainder, emptyRows;
             table = $('<table/>');
             if (className) {
@@ -227,7 +313,7 @@ define(['common'], function (common) {
             }
             length = data.length;
             remainder = length % cellsPerRow;
-            emptyRows = cellsPerRow - remainder;
+            emptyRows = remainder === 0 ? 0 : cellsPerRow - remainder;
             for (i = 0; i < length; i += 1) {
                 item = data[i];
                 if (i === 0 || i % cellsPerRow === 0) {
@@ -239,7 +325,7 @@ define(['common'], function (common) {
                 if (cellClick) {
                     cell.click(cellClick);
                 }
-                common.setHover(cell);
+                common.setHover(cell, enter, leave);
                 if (row) {
                     row.append(cell);
                 }

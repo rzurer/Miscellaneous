@@ -1,6 +1,6 @@
 ﻿/*globals $, define, console*/
-"use strict";
 define(['htmlHelper', 'common'], function (htmlHelper, common) {
+    "use strict";
     var that,
         updateAllSettlementsOnExchangeMethod,
         updateSelectedSettlementsOnExchangeMethod,
@@ -33,7 +33,6 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             cell = htmlHelper.appendCell(headerRow, "", 100, true, 'multiLine');
             cell.append($("<span>").text("File"));
             cell.append($("<span>").text("Timestamp"));
-            htmlHelper.appendCell(headerRow, "Directory", 60, true, 'alignCenter');
             htmlHelper.appendCell(headerRow, "Full File Name", 400, true);
             return headerRow;
         },
@@ -53,18 +52,18 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             }
         },
         addProduct = function (span) {
-            if (span.hasClass('optionSpan')) {
+            if (span.hasClass('optionControl')) {
                 selectedOptions.push(span.text());
             }
-            if (span.hasClass('futureSpan')) {
+            if (span.hasClass('futureControl')) {
                 selectedFutures.push(span.text());
             }
         },
         removeProduct = function (span) {
-            if (span.hasClass('optionSpan')) {
+            if (span.hasClass('optionControl')) {
                 selectedOptions.splice(selectedOptions.indexOf(span.text()), 1);
             }
-            if (span.hasClass('futureSpan')) {
+            if (span.hasClass('futureControl')) {
                 selectedOptions.splice(selectedFutures.indexOf(span.text()), 1);
             }
         },
@@ -94,10 +93,10 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             };
             productsTablesContainer = $('<div>').addClass('productsTablesContainer').attr('id', 'productsTablesContainer');
             optionSpans = optionsHash[exchangeCode] ? optionsHash[exchangeCode].map(function (option) {
-                return $('<span>').addClass('optionSpan productSpan').text(option);
+                return $('<span>').addClass('optionControl productSpan').text(option);
             }) : [];
             futureSpans = futuresHash[exchangeCode] ? futuresHash[exchangeCode].map(function (option) {
-                return $('<span>').addClass('futureSpan productSpan').text(option);
+                return $('<span>').addClass('futureControl productSpan').text(option);
             }) : [];
             max = Math.max(optionSpans.length, futureSpans.length);
             columnCount = Math.min(max, 15);
@@ -128,8 +127,9 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             return $('#confirmDialog');
         },
         createExchangeTableRow = function (exchange) {
-            var row, cell, image, errorMessage, lastSettlementUpdateDate, updateSettlementsButton, displayProductsButton, exchangeCodeCell, updateSettlementsFromUploadedFileButton, updateSettlementsButtonClick,
-                updateSettlementsFromUploadedFileButtonClick, displayProductsButtonClick, updateSelectedSettlementsFromUploadedFileButtonClick, updateSelectedSettlementsFromUploadedFileButton;
+            var row, cell, errorMessage, lastFileTimeStamp, updateSettlementsButton, displayProductsButton, exchangeCodeCell, updateSettlementsFromUploadedFileButton, updateSettlementsButtonClick,
+                updateSettlementsFromUploadedFileButtonClick, displayProductsButtonClick, updateSelectedSettlementsFromUploadedFileButtonClick, updateSelectedSettlementsFromUploadedFileButton,
+                dateSelectValue, selectedSettlementUpdateDate, dateDiff;
             row = htmlHelper.createRow('exchangesTableRow');
             if (!exchange.IsActive) {
                 row.addClass('isInactive');
@@ -137,20 +137,20 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             row.addClass('unsettled');
             common.setSimpleRowHover(row);
             exchangeCodeCell = htmlHelper.appendCell(row, exchange.ExchangeCode);
-            lastSettlementUpdateDate = new Date(exchange.LastSettlementUpdateDate).setHours(0, 0, 0, 0);
-            errorMessage = "The selected settlement date cannot be later than the last settlement update date. [ " + exchange.LastSettlementUpdateDate + " ]";
+            lastFileTimeStamp = new Date(exchange.FileTimestamp).setHours(0, 0, 0, 0);
+            errorMessage = "The selected settlement date cannot be later than the last file timestamp. [ " + exchange.FileTimestamp + " ]";
             exchangeCodeCell.hover(function () {
                 exchangeCodeCell.children('img').remove();
                 updateSettlementsButtonClick = function (e) {
-                    var dateSelectValue = getSelectedSettlementDate(),
-                        selectedSettlementUpdateDate = dateSelectValue ? new Date(dateSelectValue) : new Date("01-01-9999"),
-                        dateDiff = lastSettlementUpdateDate - selectedSettlementUpdateDate.setHours(0, 0, 0, 0);
+                    dateSelectValue = getSelectedSettlementDate();
+                    selectedSettlementUpdateDate = dateSelectValue ? new Date(dateSelectValue) : new Date("01-01-9999");
+                    dateDiff = lastFileTimeStamp - selectedSettlementUpdateDate.setHours(0, 0, 0, 0);
                     if (!dateSelectValue) {
                         common.showToaster($(this), "Please select a settlement date.", -3, 30, true, null, 2500, null, 'blueColor');
                         return;
                     }
                     if (dateDiff < 0) {
-                        common.showToaster($(this), errorMessage, -3, 30, true, null, 2500, null, 'blueColor');
+                        common.showToaster($(this), errorMessage, -3, 30, true, null, 5000, null, 'blueColor');
                         return;
                     }
                     if (dateDiff >= 86400000) {
@@ -169,15 +169,15 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
                 updateSettlementsButton.css("width", "20px");
                 updateSettlementsButton.appendTo(exchangeCodeCell);
                 displayProductsButtonClick = function (e) {
-                    var dateSelectValue = getSelectedSettlementDate(),
-                        selectedSettlementUpdateDate = dateSelectValue ? new Date(dateSelectValue) : new Date("01-01-9999"),
-                        dateDiff = lastSettlementUpdateDate - selectedSettlementUpdateDate.setHours(0, 0, 0, 0);
+                    dateSelectValue = getSelectedSettlementDate();
+                    selectedSettlementUpdateDate = dateSelectValue ? new Date(dateSelectValue) : new Date("01-01-9999");
+                    dateDiff = lastFileTimeStamp - selectedSettlementUpdateDate.setHours(0, 0, 0, 0);
                     if (!dateSelectValue) {
                         common.showToaster($(this), "Please select a settlement date.", -3, 30, true, null, 2500, null, 'blueColor');
                         return;
                     }
-                    if (dateDiff <= 0) {
-                        common.showToaster($(this), errorMessage, -3, 30, true, null, 2500, null, 'blueColor');
+                    if (dateDiff < 0) {
+                        common.showToaster($(this), errorMessage, -3, 30, true, null, 5000, null, 'blueColor');
                         return;
                     }
                     if (dateDiff >= 86400000) {
@@ -196,13 +196,23 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
                 displayProductsButton.css("width", "20px");
                 displayProductsButton.appendTo(exchangeCodeCell);
                 updateSettlementsFromUploadedFileButtonClick = function () {
-                    uploadSettlementsFileMethod(exchange.ExchangeCode, exchange.ExchangeFeedSeqNumber, "False");
+                    dateSelectValue = getSelectedSettlementDate();
+                    if (!dateSelectValue) {
+                        common.showToaster($(this), "Please select a settlement date.", -3, 30, true, null, 2500, null, 'blueColor');
+                        return;
+                    }
+                    uploadSettlementsFileMethod(dateSelectValue, exchange.ExchangeCode, exchange.ExchangeFeedSeqNumber, "False");
                 };
                 updateSettlementsFromUploadedFileButton = common.createImageButton("#uploadSpanFileImage", exchange.ExchangeCode + '  -->  Import file and update settlements for all products.', updateSettlementsFromUploadedFileButtonClick, 'updateSettlementsButton');
                 updateSettlementsFromUploadedFileButton.css("width", "20px");
                 updateSettlementsFromUploadedFileButton.appendTo(exchangeCodeCell);
                 updateSelectedSettlementsFromUploadedFileButtonClick = function () {
-                    uploadSettlementsFileMethod(exchange.ExchangeCode, exchange.ExchangeFeedSeqNumber, "True");
+                    dateSelectValue = getSelectedSettlementDate();
+                    if (!dateSelectValue) {
+                        common.showToaster($(this), "Please select a settlement date.", -3, 30, true, null, 2500, null, 'blueColor');
+                        return;
+                    }
+                    uploadSettlementsFileMethod(dateSelectValue, exchange.ExchangeCode, exchange.ExchangeFeedSeqNumber, "True");
                 };
                 updateSelectedSettlementsFromUploadedFileButton = common.createImageButton("#uploadSelectedSpanFileImage", exchange.ExchangeCode + '  -->  Import file and update settlements for selected products.', updateSelectedSettlementsFromUploadedFileButtonClick, 'updateSettlementsButton');
                 updateSelectedSettlementsFromUploadedFileButton.css("width", "20px");
@@ -212,13 +222,10 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             });
             htmlHelper.appendCell(row, exchange.ExchangeName);
             htmlHelper.appendCell(row, exchange.SPANStartTime);
-            htmlHelper.appendCell(row, exchange.IsEarlyFeed, '', false);
-            htmlHelper.appendCell(row, exchange.LastSettlementUpdateDate, '', false, 'settlementDate');
+            htmlHelper.appendCell(row, exchange.IsEarlyFeed);
+            htmlHelper.appendCell(row, exchange.LastSettlementUpdateDate);
             htmlHelper.appendCell(row, exchange.FileSize || '0');
-            htmlHelper.appendCell(row, exchange.FileTimestamp);
-            cell = htmlHelper.appendCell(row, '', false, 'alignCenter');
-            image = $('#folderImage').clone();
-            cell.append(htmlHelper.createImageAnchor(image, exchange.SPANFileDirectory, true));
+            htmlHelper.appendCell(row, exchange.FileTimestamp, '', false, 'fileTimestamp');
             cell = htmlHelper.appendCell(row);
             cell.append(htmlHelper.createAnchor(exchange.SPANFileName, exchange.SPANFileName, true, 'download file'));
             optionsHash[exchange.ExchangeCode] = exchange.Options;
@@ -253,13 +260,13 @@ define(['htmlHelper', 'common'], function (htmlHelper, common) {
             common.displayPopup(null, null, false, 'productsPopup', callback);
         },
         refreshSettlementRows: function (date) {
-            $('.exchangesTable').find('td.settlementDate').each(function () {
-                var row, settlementDate;
-                settlementDate = new Date($(this).text());
+            $('.exchangesTable').find('td.fileTimestamp').each(function () {
+                var row, fileTimestamp;
+                fileTimestamp = new Date($(this).text());
                 row = $(this).parent('tr');
                 row.removeClass('settled');
                 row.removeClass('unsettled');
-                row.addClass(settlementDate - date.setHours(0, 0, 0, 0) > 0 ? 'settled' : 'unsettled');
+                row.addClass(fileTimestamp - date.setHours(0, 0, 0, 0) > 0 ? 'settled' : 'unsettled');
             });
         },
         createSettlementsUpdateResults: function (messages) {

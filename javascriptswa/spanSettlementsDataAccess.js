@@ -21,9 +21,9 @@ define(['common'], function (common) {
                 callback(response);
             });
         },
-        runSettlementsOnExchangeFromFile: function (exchangeCode, sequenceNumber, filePath, callback) {
+        runSettlementsOnExchangeFromFile: function (settlementDate, exchangeCode, sequenceNumber, filePath, callback) {
             var url = "RunSettlementsOnExchangeFromFile",
-                data = { exchangeCode: exchangeCode, sequenceNumber: Number(sequenceNumber), filePath: filePath };
+                data = { settlementDate: settlementDate, exchangeCode: exchangeCode, sequenceNumber: Number(sequenceNumber), filePath: filePath };
             common.postFunction(url, data, function (response) {
                 callback(response);
             });
@@ -35,9 +35,9 @@ define(['common'], function (common) {
                 callback(response);
             });
         },
-        runSelectedSettlementsOnExchangeFromFile: function (exchangeCode, sequenceNumber, options, futures, filePath, callback) {
+        runSelectedSettlementsOnExchangeFromFile: function (settlementDate, exchangeCode, sequenceNumber, options, futures, filePath, callback) {
             var url = "RunSelectedSettlementsOnExchangeFromFile",
-                data = {exchangeCode: exchangeCode, sequenceNumber: Number(sequenceNumber), options: options, futures: futures, filePath: filePath };
+                data = { settlementDate: settlementDate, exchangeCode: exchangeCode, sequenceNumber: Number(sequenceNumber), options: options, futures: futures, filePath: filePath };
             common.postFunction(url, data, function (response) {
                 callback(response);
             });
@@ -53,8 +53,8 @@ define(['common'], function (common) {
             var url = "CheckWhetherSettlementsHaveBeenUpdated";
             common.postFunctionAlternate(url, null, callback);
         },
-        uploadSPANSettlementsFile: function (exchangeCode, sequenceNumber, wantSelectedProducts) {
-            window.location = "UploadSPANFile?upload=spansettlements&exchangeCode=" + exchangeCode + "&sequenceNumber=" + sequenceNumber + "&wantSelectedProducts=" + wantSelectedProducts;
+        uploadSPANSettlementsFile: function (settlementDate, exchangeCode, sequenceNumber, wantSelectedProducts) {
+            window.location = "UploadSPANFile?upload=spansettlements&settlementDate=" + settlementDate + "&exchangeCode=" + exchangeCode + "&sequenceNumber=" + sequenceNumber + "&wantSelectedProducts=" + wantSelectedProducts;
         }
     };
 });

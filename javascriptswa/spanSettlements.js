@@ -12,7 +12,7 @@ define(['spanSettlementsDataAccess', "spanSettlementsFactory", "common", "htmlHe
             settlementsStatus.empty();
             settlementsError.text('');
         },
-        displayError = function(error) {
+        displayError = function (error) {
             settlementsError.text(error);
         },
         displayExchanges = function (response) {
@@ -105,7 +105,7 @@ define(['spanSettlementsDataAccess', "spanSettlementsFactory", "common", "htmlHe
                 }, 4000);
             };
             showProcessingPopup();
-            dataAccess.runSelectedSettlementsOnExchangeFromFile(exchangeCode, sequenceNumber, options, futures, filePath, callback);
+            dataAccess.runSelectedSettlementsOnExchangeFromFile(dateSelect.val(), exchangeCode, sequenceNumber, options, futures, filePath, callback);
         },
         runSettlementsOnExchange = function (exchangeCode, sequenceNumber) {
             var callback;
@@ -139,13 +139,13 @@ define(['spanSettlementsDataAccess', "spanSettlementsFactory", "common", "htmlHe
                 }, 4000);
             };
             showProcessingPopup();
-            dataAccess.runSettlementsOnExchangeFromFile(exchangeCode, sequenceNumber, filePath, callback);
+            dataAccess.runSettlementsOnExchangeFromFile(dateSelect.val(), exchangeCode, sequenceNumber, filePath, callback);
         },
         toggleInactiveFeeds = function () {
             $('.isInactive').toggle();
         },
-        uploadSPANSettlementsFile = function (exchangeCode, sequenceNumber, wantSelectedProducts) {
-            dataAccess.uploadSPANSettlementsFile(exchangeCode, sequenceNumber, wantSelectedProducts);
+        uploadSPANSettlementsFile = function (settlementDate, exchangeCode, sequenceNumber, wantSelectedProducts) {
+            dataAccess.uploadSPANSettlementsFile(settlementDate, exchangeCode, sequenceNumber, wantSelectedProducts);
         },
         dateSelected = function () {
             if (dateSelect.val()) {
@@ -158,16 +158,24 @@ define(['spanSettlementsDataAccess', "spanSettlementsFactory", "common", "htmlHe
             showInactiveFeedsCheckbox.bind('change', toggleInactiveFeeds);
             dateSelect.bind('change', dateSelected);
         },
-        initializeDateSelect = function (response) {
+        initializeDateSelect = function (response, settlementDate, callback) {
             if (!response.Success) {
                 displayError(response.Message);
                 return;
             }
             htmlHelper.fillSelectFromList(dateSelect, 'Select a date for which you would like to run settlements', response.Payload);
+            if (settlementDate) {
+                dateSelect.val(settlementDate);
+            }
+            if (callback) {
+                callback()
+            }
         };
     return {
         initialize: function (model) {
+            var settlementDate, callback;
             factory.initialize(runSettlementsOnExchange, runSelectedSettlementsOnExchange, runSelectedSettlementsOnExchangeFromFile, uploadSPANSettlementsFile);
+            settlementDate = model ? model.settlementDate : null;
             assignEventHandlers();
             var doDisplayExchanges = function (response) {
                 displayExchanges(response);
@@ -181,8 +189,11 @@ define(['spanSettlementsDataAccess', "spanSettlementsFactory", "common", "htmlHe
                     runSettlementsOnExchangeFromFile(model.exchangeCode, model.sequenceNumber, model.uploadPath);
                 }
             };
-            dataAccess.getExchanges(doDisplayExchanges);
-            dataAccess.getLastFourBusinessDays(initializeDateSelect);
+            callback = function (response) {
+                initializeDateSelect(response, settlementDate, function() { dataAccess.getExchanges(doDisplayExchanges); });
+            },
+            dataAccess.getLastFourBusinessDays(callback);
+
         }
     };
 });

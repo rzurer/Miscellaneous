@@ -28,7 +28,7 @@ define(["traderChangeLogDataAccess", "htmlHelper", "common"], function (dataAcce
                 table = htmlHelper.createTable(),
                 row;
             container.empty();
-            if (entries.length === 0) {
+            if (!entries || entries.length === 0) {
                 row = htmlHelper.createRow();
                 htmlHelper.appendCell(row, "No entries found.");
                 table.append(row);

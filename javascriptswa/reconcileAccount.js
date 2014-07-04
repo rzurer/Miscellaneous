@@ -1,6 +1,6 @@
 ﻿/*globals $, define, console */
-"use strict";
 define(['reconcileAccountDataAccess', 'htmlHelper', 'common'], function (dataAccess, htmlHelper, common) {
+    "use strict";
     var showTraderAndProductsByReconcileAccountError = $('#showTraderAndProductsByReconcileAccountError'),
         showTraderAndProductsByReconcileAccountStatus = $('#showTraderAndProductsByReconcileAccountStatus'),
         reconcileAccountSelect = $('#reconcileAccountSelect'),
@@ -34,6 +34,7 @@ define(['reconcileAccountDataAccess', 'htmlHelper', 'common'], function (dataAcc
             htmlHelper.fillSelectFromList(securityTypeSelect, "Select a security type", []);
             htmlHelper.fillSelectFromList(productSelect, "Select a product", []);
             htmlHelper.fillSelectFromList(traderSelect, "Select a trader", []);
+            assignEventHandlers();
         },
         createTraderAndProductsTableHeader = function () {
             var headerRow;
@@ -72,36 +73,8 @@ define(['reconcileAccountDataAccess', 'htmlHelper', 'common'], function (dataAcc
             array.forEach(function (item) {
                 table.append(createTraderAndProductsTableRow(item));
             });
+            assignEventHandlers();
             return table;
-        },
-        displayTradersAndProductsForReconcileAccount = function (response) {
-            var securityTypes, products, traders;
-            securityTypes = [];
-            products = [];
-            traders = [];
-            response.Payload.forEach(function (item) {
-                if (securityTypes.indexOf(item.SecurityType) === -1) {
-                    securityTypes.push(item.SecurityType);
-                }
-                if (products.indexOf(item.Product) === -1) {
-                    products.push(item.Product);
-                }
-                if (traders.indexOf(item.Trader) === -1) {
-                    traders.push(item.Trader);
-                }
-            });
-            htmlHelper.fillSelectFromList(securityTypeSelect, "Select a security type", securityTypes);
-            htmlHelper.fillSelectFromList(productSelect, "Select a product", products);
-            htmlHelper.fillSelectFromList(traderSelect, "Select a trader", traders);
-            traderAndProductsTableContainer.empty();
-            traderAndProductsTableContainer.append(createTraderAndProductsTable(response.Payload));
-        },
-        retrieveTradersAndProductsByReconcileAccount = function () {
-            var accountNumber = $(this).val();
-            if (!accountNumber) {
-                return;
-            }
-            dataAccess.retrieveTradersAndProductsByReconcileAccount(accountNumber, displayTradersAndProductsForReconcileAccount);
         },
         filterData = function () {
             var trader, product, securityType, traderAndProductsRows, row;
@@ -195,15 +168,47 @@ define(['reconcileAccountDataAccess', 'htmlHelper', 'common'], function (dataAcc
                 return;
             }
         },
+        displayTradersAndProductsForReconcileAccount = function (response) {
+            var securityTypes, products, traders;
+            securityTypes = [];
+            products = [];
+            traders = [];
+            response.Payload.forEach(function (item) {
+                if (securityTypes.indexOf(item.SecurityType) === -1) {
+                    securityTypes.push(item.SecurityType);
+                }
+                if (products.indexOf(item.Product) === -1) {
+                    products.push(item.Product);
+                }
+                if (traders.indexOf(item.Trader) === -1) {
+                    traders.push(item.Trader);
+                }
+            });
+            htmlHelper.fillSelectFromList(securityTypeSelect, "Select a security type", securityTypes);
+            htmlHelper.fillSelectFromList(productSelect, "Select a product", products);
+            htmlHelper.fillSelectFromList(traderSelect, "Select a trader", traders);
+            traderAndProductsTableContainer.empty();
+            traderAndProductsTableContainer.append(createTraderAndProductsTable(response.Payload));
+        },
+        retrieveTradersAndProductsByReconcileAccount = function () {
+            var accountNumber = $(this).val();
+            if (!accountNumber) {
+                return;
+            }
+            dataAccess.retrieveTradersAndProductsByReconcileAccount(accountNumber, displayTradersAndProductsForReconcileAccount);
+        },
         assignEventHandlers = function () {
-            reconcileAccountSelect.bind('change', retrieveTradersAndProductsByReconcileAccount);
-            securityTypeSelect.bind('change', filterData);
-            traderSelect.bind('change', filterData);
-            productSelect.bind('change', filterData);
+            reconcileAccountSelect.off('change', retrieveTradersAndProductsByReconcileAccount);
+            securityTypeSelect.off('change', filterData);
+            traderSelect.off('change', filterData);
+            productSelect.off('change', filterData);
+            reconcileAccountSelect.on('change', retrieveTradersAndProductsByReconcileAccount);
+            securityTypeSelect.on('change', filterData);
+            traderSelect.on('change', filterData);
+            productSelect.on('change', filterData);
         };
     return {
         initialize: function () {
-            assignEventHandlers();
             dataAccess.retrieveAllReconcileAccounts(fillReconcileAccountSelect);
         }
     };

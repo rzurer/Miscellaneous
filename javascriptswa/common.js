@@ -1,5 +1,4 @@
-﻿/*globals $, console, define, jQuery, window, document, require*/
-"use strict";
+﻿/*globals $, console, define, jQuery, window, navigator, screen, document, require*/
 require.config({
     paths: {
         jQuery: '../Scripts/jquery-1.7.1',
@@ -8,6 +7,7 @@ require.config({
     shim: { 'jQueryUi': { deps: ['jQuery']} }
 });
 define(['jQuery', 'jQueryUi'], function () {
+    "use strict";
     var popupStatus = 0,
         getPopupStatus = function () {
             return popupStatus;
@@ -135,33 +135,39 @@ define(['jQuery', 'jQueryUi'], function () {
                 });
             },
             parseJsonDate: function (jsonDate) {
-                return new Date(parseInt(jsonDate.substr(6)));
+                return new Date(parseInt(jsonDate.substr(6), 10));
             },
             formatTime: function (date) {
-                var hours = date.getHours();
-                var minutes = date.getMinutes();
-                var seconds = date.getSeconds();
-                if (hours < 10)
+                var hours, minutes, seconds;
+                hours = date.getHours();
+                minutes = date.getMinutes();
+                seconds = date.getSeconds();
+                if (hours < 10) {
                     hours = '0' + hours;
-                if (minutes < 10)
+                }
+                if (minutes < 10) {
                     minutes = '0' + minutes;
-                if (seconds < 10)
+                }
+                if (seconds < 10) {
                     seconds = '0' + seconds;
+                }
                 return hours + ":" + minutes + ":" + seconds;
             },
-            formatDate: function (date) {
-                var jsDate = new Date(date);
-                var month = getTwoDigitMonthNumber(jsDate.getMonth());
-                return month + '-' + getTwoDigitDate(jsDate.getDate()) + '-' + jsDate.getFullYear();
+            formatDate: function (date, separator) {
+                var jsDate, month;
+                jsDate = new Date(date);
+                month = getTwoDigitMonthNumber(jsDate.getMonth());
+                return month + (separator || '-') + getTwoDigitDate(jsDate.getDate()) + (separator || '-') + jsDate.getFullYear();
             },
             jsonDateToTimeStamp: function (jsonDateString) {
                 var jsonDate = exports.parseJsonDate(jsonDateString);
                 return exports.formatDate(jsonDate) + ' ' + exports.formatTime(jsonDate);
             },
             fromJsonDate: function (str) {
-                var parsedDate = new Date(parseInt(str.substr(6)));
-                var jsDate = new Date(parsedDate);
-                var month = getTwoDigitMonthNumber(jsDate.getMonth());
+                var parsedDate, jsDate, month;
+                parsedDate = new Date(parseInt(str.substr(6), 10));
+                jsDate = new Date(parsedDate);
+                month = getTwoDigitMonthNumber(jsDate.getMonth());
                 return month + '-' + getTwoDigitDate(jsDate.getDate()) + '-' + jsDate.getFullYear();
             },
             setErrorBorderAndFocus: function (target) {
@@ -212,9 +218,18 @@ define(['jQuery', 'jQueryUi'], function () {
                 control.removeAttr('disabled');
                 control.css('opacity', '1.0');
                 control.css('filter', 'alpha(opacity=100)');
+                control.css('cursor', 'arrow');
                 if (callback) {
                     callback();
                 }
+            },
+            enableControls: function (controls) {
+                controls.forEach(function (control) {
+                    control.removeAttr('disabled');
+                    control.css('opacity', '1.0');
+                    control.css('filter', 'alpha(opacity=100)');
+                    control.css('cursor', 'pointer');
+                });
             },
             trimmedValueIsNullOrEmpty: function (control) {
                 var value = control.val();
@@ -228,7 +243,30 @@ define(['jQuery', 'jQueryUi'], function () {
                     }
                 }
             },
-            getPropertiesArray : function (obj) {
+            fireOnEnterKeyDown: function (selector, method) {
+                selector.unbind('keydown');
+                selector.keydown(function (event) {
+                    if (event.which === 13) {
+                        method();
+                    }
+                });
+            },
+            sortArrayByStringProperty: function (array, propertyName) {
+                var sortFunction, propertyA, propertyB;
+                sortFunction = function (a, b) {
+                    propertyA = a[propertyName].toLowerCase();
+                    propertyB = b[propertyName].toLowerCase();
+                    if (propertyA < propertyB) {
+                        return -1;
+                    }
+                    if (propertyA > propertyB) {
+                        return 1;
+                    }
+                    return 0;
+                };
+                return array.sort(sortFunction);
+            },
+            getPropertiesArray: function (obj) {
                 var property, properties;
                 properties = [];
                 for (property in obj) {
@@ -240,13 +278,55 @@ define(['jQuery', 'jQueryUi'], function () {
             },
             disablePopup: function (callback) {
                 if (getPopupStatus() === 1) {
+                    exports.getPopup().hide();
                     getBackgroundPopup().fadeOut("slow");
-                    exports.getPopup().fadeOut("slow");
                     popupStatus = 0;
                     if (callback) {
                         callback();
                     }
                 }
+            },
+            getFormattedDate: function (dateToFormat, format) {
+                var day, month, year;
+                day = dateToFormat.getDate();
+                month = dateToFormat.getMonth() + 1;
+                year = dateToFormat.getFullYear();
+                if (format === 'dd/mm/yyyy') {
+                    month = month.toString().length === 1 ? "0" + month : String(month);
+                    day = day.toString().length === 1 ? "0" + day : String(day);
+                    year = year.toString().length === 2 ? "20" + year : String(year);
+                    return month + '/' + day + '/' + year;
+                }
+                return dateToFormat.toDateString();
+            },
+            isLetter: function (e) {
+                var code = e.charCode || e.keyCode;
+                return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code === 8);
+            },
+            isLetterOrNumber: function (e) {
+                var code = e.charCode || e.keyCode;
+                return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57);
+            },
+            isLetterOrNumberOrSpecifiedKeyCode: function (e, allowedKeyCodes) {
+                var code = e.charCode || e.keyCode;
+                return exports.isLetterOrNumber(e) || (allowedKeyCodes && allowedKeyCodes.indexOf(code) !== -1);
+            },
+            isLetterOrNumberOrSpace: function (e) {
+                var code = e.charCode || e.keyCode;
+                return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) || (code >= 48 && code <= 57) || code === 32;
+            },
+            getIndexOfArrayItem: function (array, property, value) {
+                var item, i;
+                if (!array || array.length === 0 || !property || !value) {
+                    return -1;
+                }
+                for (i = 0; i < array.length; i += 1) {
+                    item = array[i];
+                    if (item.hasOwnProperty(property) && item[property] === value) {
+                        return i;
+                    }
+                }
+                return -1;
             },
             clearPopup: function () {
                 exports.getPopup().children('div').remove();
@@ -282,9 +362,7 @@ define(['jQuery', 'jQueryUi'], function () {
                 });
             },
             showPopup: function (top, left, classname) {
-                var containerWidth, containerHeight, width, height, popup;
-                containerWidth = $('#main').width();
-                containerHeight = $('#main').height();
+                var width, height, popup;
                 popup = exports.getPopup();
                 if (classname) {
                     popup.addClass(classname);
@@ -294,10 +372,10 @@ define(['jQuery', 'jQueryUi'], function () {
                 width = popup.width();
                 height = popup.height();
                 if (!top) {
-                    top = (containerHeight / 2) - (height / 2);
+                    top = (screen.height / 2) - (height / 2);
                 }
                 if (!left) {
-                    left = (containerWidth / 2) - (width / 2);
+                    left = (screen.width / 2) - (width / 2);
                 }
                 popup.css({ "position": "absolute", "top": top, "left": left });
                 loadPopup(popup);
@@ -365,6 +443,23 @@ define(['jQuery', 'jQueryUi'], function () {
                 }
                 return image;
             },
+            wrapFunction: function (func, args) {
+                return function (callback) {
+                    func(args, callback);
+                };
+            },
+            createAddButton: function (message, callback, classname) {
+                var image = $("#addImage").clone();
+                image.attr('title', message);
+                image.css('cursor', "pointer");
+                if (callback) {
+                    image.click(callback);
+                }
+                if (classname) {
+                    image.addClass(classname);
+                }
+                return image;
+            },
             createDeleteButton: function (message, callback, classname) {
                 var image = $("#deleteImage").clone();
                 image.attr('title', message);
@@ -377,7 +472,7 @@ define(['jQuery', 'jQueryUi'], function () {
                 }
                 return image;
             },
-            showToaster: function (parent, text, topOffset, leftOffset, isError, control, delay, callback, className) {
+            showToaster: function (parent, text, topOffset, leftOffset, isError, control, delay, callback, className) {                
                 var left, top, toaster;
                 topOffset = topOffset || 0;
                 leftOffset = leftOffset || 0;
@@ -433,6 +528,7 @@ define(['jQuery', 'jQueryUi'], function () {
                 });
             },
             postFunction: function (url, data, callback) {
+                var responseHeader;
                 if (data) {
                     data = jQuery.param(data, true);
                 }
@@ -440,7 +536,11 @@ define(['jQuery', 'jQueryUi'], function () {
                     type: 'POST',
                     url: url,
                     data: data,
-                    success: function (response) {
+                    success: function (response, status, xhr) {
+                        responseHeader = xhr.getResponseHeader("content-type") || "";
+                        if (responseHeader.indexOf('html') > -1) {
+                            window.location.reload();
+                        }
                         if (!response.Success) {
                             if (callback && typeof callback === 'function') {
                                 callback(response);
@@ -536,12 +636,12 @@ define(['jQuery', 'jQueryUi'], function () {
                 source.splice(index, 1);
                 control.autocomplete("option", "source", source);
             },
-            isNumericKey: function (evt) {
-                var charCode = (evt.which) || evt.keyCode;
+            isNumericKey: function (e) {
+                var charCode = (e.which) || e.charCode || e.keyCode;
                 return (charCode >= 48 && charCode <= 57) || charCode === 45 || charCode === 46;
             },
-            isValidIPAddressKey: function (evt) {
-                var charCode = (evt.which) || evt.keyCode;
+            isValidIPAddressKey: function (e) {
+                var charCode = (e.which) || e.charCode || e.keyCode;
                 return (charCode >= 48 && charCode <= 57) || charCode === 46;
             },
             ipAddressBlurEvent: function () {
@@ -582,6 +682,17 @@ define(['jQuery', 'jQueryUi'], function () {
                     }
                 }
             },
+            arrayToCsv: function (array) {
+                var itemString, csv = '';
+                if (!array || !array.length) {
+                    return '';
+                }
+                array.forEach(function (item) {
+                    itemString = item ? item.toString() : "NULL";
+                    csv += itemString + ',';
+                });
+                return csv.substring(0, csv.lastIndexOf(','));
+            },
             selectText: function (elementId) {
                 var doc = document, text = doc.getElementById(elementId), range, selection;
                 if (doc.body.createTextRange) {
@@ -596,20 +707,16 @@ define(['jQuery', 'jQueryUi'], function () {
                     selection.addRange(range);
                 }
             },
-            setHover: function (target) {
+            setHover: function (target, enter, leave) {
                 target.bind('mouseenter',
                     function () {
-                        $(this).css({
-                            "background-color": "#FFFF96",
-                            "cursor": "pointer"
-                        });
+                        $(this).css({ "background-color": "#FFFF96", "cursor": "pointer" });
+                        if (enter) { enter.apply(target); }
                     });
                 target.bind('mouseleave',
                     function () {
-                        $(this).css({
-                            "background-color": "",
-                            "cursor": "default"
-                        });
+                        $(this).css({ "background-color": "", "cursor": "default" });
+                        if (leave) { leave.apply(target); }
                     });
             },
             setSimpleRowHover: function (row) {
@@ -675,6 +782,47 @@ define(['jQuery', 'jQueryUi'], function () {
                     }
                 }
                 return result;
+            },
+            requiredValidationHandler: function (e) {
+                var target;
+                target = $(this);
+                if (!target.val()) {
+                    target.css('border', e.data.errorBorder);
+                    return;
+                }
+                target.css('border', e.data.border);
+            },
+            addRequiredValidationHandler: function (eventName, data, controls) {
+                controls.forEach(function (control) {
+                    control.on(eventName, data, exports.requiredValidationHandler);
+                });
+            },
+            clearRequiredValidationHandler: function (eventName, controls) {
+                controls.forEach(function (control) {
+                    control.off(eventName, exports.requiredValidationHandler);
+                });
+            },
+            isIE: function () {
+                var ua, msie;
+                ua = window.navigator.userAgent;
+                msie = ua.indexOf("MSIE");
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                    return true;
+                }
+                return false;
+            },
+            safeCallback: function (callback, arg) {
+                if (callback && typeof (callback) === 'function') {
+                    callback(arg);
+                }
+            },
+            getUniqueTime: function () {
+                var time = new Date().getTime();
+                while (time == new Date().getTime());
+                return new Date().getTime();
+            },
+            isArray : function(obj) {
+                return Object.prototype.toString.call(obj) === '[object Array]';
             }
         };
     return exports;
